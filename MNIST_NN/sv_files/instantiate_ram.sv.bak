@@ -1,0 +1,17 @@
+module instantiate_ram (
+
+);
+
+
+ram_4k (
+			.address_a(),
+			.address_b(),
+			.clock(),
+			.data_a(),
+			.data_b(),
+			.wren_a(),
+			.wren_b(),
+			.q_a(),
+			.q_b() );
+
+endmodule

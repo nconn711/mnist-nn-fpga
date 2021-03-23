@@ -1,0 +1,18 @@
+Fitter Status : Successful - Tue Mar 23 15:27:30 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : mnist_nn
+Top-level Entity Name : top_level
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 43 / 49,760 ( < 1 % )
+    Total combinational functions : 43 / 49,760 ( < 1 % )
+    Dedicated logic registers : 0 / 49,760 ( 0 % )
+Total registers : 0
+Total pins : 71 / 360 ( 20 % )
+Total virtual pins : 0
+Total memory bits : 4,096 / 1,677,312 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

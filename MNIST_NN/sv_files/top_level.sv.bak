@@ -1,0 +1,7 @@
+module top_level (
+	input logic [15:0] A, B,
+	output logic [16:0] Out
+);
+
+
+assign Out = A + B;
