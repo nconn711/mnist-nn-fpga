@@ -1,0 +1,21 @@
+module neuron_784_20 (
+	input logic Clk,
+	input logic Reset,
+	input logic [15:0] In [783:0],
+	output logic [15:0] Out
+);
+
+	logic [32:0] result [];
+
+	
+	
+	mult_add u0	(
+						.clock0(Clk),
+						.dataa_0(dataa_0),
+						.dataa_1(dataa_1),
+						.datab_0(datab_0),
+						.datab_1(datab_1),
+						.result() );
+	
+
+endmodule

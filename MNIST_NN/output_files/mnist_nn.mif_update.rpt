@@ -1,5 +1,5 @@
 MIF/HEX Update report for mnist_nn
-Tue Mar 23 14:25:29 2021
+Tue Mar 23 22:59:05 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -32,22 +32,28 @@ refer to the applicable agreement for further details.
 
 
 
-+-----------------------------------------------------------+
-; MIF/HEX Update Summary                                    ;
-+-----------------------+-----------------------------------+
-; MIF/HEX Update Status ; Failed - Tue Mar 23 14:25:29 2021 ;
-; Revision Name         ; mnist_nn                          ;
-; Top-level Entity Name ; top_level                         ;
-; Family                ; MAX 10                            ;
-; Device                ; 10M50DCF484C7G                    ;
-+-----------------------+-----------------------------------+
++---------------------------------------------------------------+
+; MIF/HEX Update Summary                                        ;
++-----------------------+---------------------------------------+
+; MIF/HEX Update Status ; Successful - Tue Mar 23 22:59:05 2021 ;
+; Revision Name         ; mnist_nn                              ;
+; Top-level Entity Name ; top_level                             ;
+; Family                ; MAX 10                                ;
+; Device                ; 10M50DAF484C7G                        ;
++-----------------------+---------------------------------------+
 
 
-+--------------------------------+
-; MIF/HEX Update Processed Files ;
-+--------------------------------+
-; File Name                      ;
-+--------------------------------+
++-------------------------------------------------------------+
+; MIF/HEX Update Processed Files                              ;
++-------------------------------------------------------------+
+; File Name                                                   ;
++-------------------------------------------------------------+
+; /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_0.mif ;
+; /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_1.mif ;
+; /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_2.mif ;
+; /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_3.mif ;
+; /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_4.mif ;
++-------------------------------------------------------------+
 
 
 +-------------------------+
@@ -56,14 +62,29 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime MIF/HEX Update
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Mar 23 14:25:28 2021
+    Info: Processing started: Tue Mar 23 22:59:04 2021
 Info: Command: quartus_cdb mnist_nn -c mnist_nn --update_mif
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Error (39022): Found no valid Memory Initialization File to process
-Error: Quartus Prime MIF/HEX Update was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 1162 megabytes
-    Error: Processing ended: Tue Mar 23 14:25:29 2021
-    Error: Elapsed time: 00:00:01
-    Error: Total CPU time (on all processors): 00:00:01
+Warning (113028): 830 out of 4096 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_2.mif Line: 1
+    Warning (113027): Addresses ranging from 3266 to 4095 are not initialized File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_2.mif Line: 1
+Warning (113028): 830 out of 4096 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_1.mif Line: 1
+    Warning (113027): Addresses ranging from 3266 to 4095 are not initialized File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_1.mif Line: 1
+Warning (113028): 830 out of 4096 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_0.mif Line: 1
+    Warning (113027): Addresses ranging from 3266 to 4095 are not initialized File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_0.mif Line: 1
+Warning (113028): 830 out of 4096 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_3.mif Line: 1
+    Warning (113027): Addresses ranging from 3266 to 4095 are not initialized File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_3.mif Line: 1
+Warning (113028): 830 out of 4096 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_4.mif Line: 1
+    Warning (113027): Addresses ranging from 3266 to 4095 are not initialized File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_4.mif Line: 1
+Info (39024): Processed the following Memory Initialization File(s)
+    Info (39025): Processed Memory Initialization File /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_0.mif File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_0.mif Line: 0
+    Info (39025): Processed Memory Initialization File /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_1.mif File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_1.mif Line: 0
+    Info (39025): Processed Memory Initialization File /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_2.mif File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_2.mif Line: 0
+    Info (39025): Processed Memory Initialization File /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_3.mif File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_3.mif Line: 0
+    Info (39025): Processed Memory Initialization File /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_4.mif File: /home/ece385user/Documents/MNIST_NN/ram_files/MIF/ram_4.mif Line: 0
+Info: Quartus Prime MIF/HEX Update was successful. 0 errors, 11 warnings
+    Info: Peak virtual memory: 1166 megabytes
+    Info: Processing ended: Tue Mar 23 22:59:05 2021
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

@@ -243,11 +243,6 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity DE10_LITE_Defa
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity DE10_LITE_Default -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -entity DE10_LITE_Default -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity DE10_LITE_Default -section_id Top
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/synchronizers.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/hex_driver.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/top_level.sv
-set_global_assignment -name QIP_FILE ram_files/ram_4k.qip
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/instantiate_ram.sv
 set_global_assignment -name ENABLE_OCT_DONE ON
 set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
 set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
@@ -257,4 +252,14 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/neuron_784_20.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/top_level.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/instantiate_ram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/hex_driver.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/synchronizers.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/neural_network.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/state_machine.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/CONSTANTS.sv
+set_global_assignment -name QIP_FILE neuron_IP_files/mult_accum.qip
+set_global_assignment -name QIP_FILE ram_files/ram.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

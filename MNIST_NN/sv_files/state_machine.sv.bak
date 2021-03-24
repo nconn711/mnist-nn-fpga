@@ -1,0 +1,68 @@
+module state_machine (
+	input logic Clk, Reset
+);
+
+	logic [8:0] tick, next_tick;
+	logic ready, next_ready;
+	logic [11:0] address [4:0];
+	logic [11:0] next_address [4:0];
+	logic start [4:0];
+
+	enum [4:0] {IDLE, START, DONE, LAYER_1, LAYER_2, LAYER_3} curr_state, next_state;
+	
+	always_ff @ (posedge Clk) begin
+		if (Reset) begin
+			curr_state <= IDLE;
+			tick <= 9'b0;
+			ready <= 1'b1;
+			address <= 60'b0;
+		end
+		else begin
+			curr_state <= next_state;
+			tick <= next_tick;
+			ready <= next_ready;
+			address <= next_address;
+		end
+	end
+	
+	always_comb begin
+	
+		next_state = curr_state;
+		next_tick = tick;
+		next_ready = ready;
+		next_address = address;
+		
+		unique case (next_state)
+			IDLE:			if (Compute)
+								next_state = START;
+			DONE:			if (~Compute)
+								next_state = IDLE;
+			START:		next_state = LAYER_1; // start forward propagation
+			LAYER_1:		if (tick > 784)
+								next_state = LAYER_2;
+			LAYER_2:		if (tick > 20)
+								next_state = LAYER_3;
+			LAYER_3:		if (tick > 20)
+								next_state = DONE;
+		endcase
+		
+		unique case (curr_state)
+			IDLE:			next_ready = 1'b1;
+			DONE:			next_ready = 1'b1;
+			START:	begin
+							next_ready = 1'b0;
+							next_tick = 9'b0;
+						end
+						
+			LAYER_1:		if (tick > 784)
+								next_state = LAYER_2;
+			LAYER_2:		if (tick > 20)
+								next_state = LAYER_3;
+			LAYER_3:		if (tick > 20)
+								next_state = DONE;
+								
+		endcase
+		
+	end
+	
+endmodule
