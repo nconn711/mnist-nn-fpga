@@ -22,6 +22,8 @@
 # or you create an own submodule in the folder to keep binary files out of your
 # design.
 
+.DS_Store
+
 # Need to keep all HDL files
 # *.vhd
 # *.v
@@ -57,6 +59,8 @@
 # *.sdc # I want those timing files
 
 # ignore Quartus II generated folders
+*/greybox_tmp/
+*/output_files/
 */db/
 */incremental_db/
 */simulation/
