@@ -1,9 +1,0 @@
-
-State Machine - |top_level|neural_network:nn|state_machine:s0|curr_state
-Name curr_state.LAYER_3 curr_state.LAYER_2 curr_state.LAYER_1 curr_state.DONE curr_state.START curr_state.IDLE 
-curr_state.IDLE 0 0 0 0 0 0 
-curr_state.START 0 0 0 0 1 1 
-curr_state.DONE 0 0 0 1 0 1 
-curr_state.LAYER_1 0 0 1 0 0 1 
-curr_state.LAYER_2 0 1 0 0 0 1 
-curr_state.LAYER_3 1 0 0 0 0 1 
