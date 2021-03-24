@@ -1,4 +1,3 @@
-# FPGA-Accelerated Embedded Neural Network 
-### Classifies handwritten numbers in real-time
-### Trained on the MNIST dataset
-
+# FPGA-Accelerated Embedded Neural Network -- MNIST
+- Classifies handwritten numbers in real-time
+- VGA and USB mouse GUI
