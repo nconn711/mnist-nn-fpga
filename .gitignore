@@ -60,6 +60,7 @@
 
 # ignore Quartus II generated folders
 */greybox_tmp/
+*/*/greybox_tmp/
 */output_files/
 */db/
 */incremental_db/
