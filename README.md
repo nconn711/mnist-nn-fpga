@@ -1,2 +1,4 @@
-# mnist-nn-fpga
-MNIST-trained neural network design for FPGA with VGA GUI
+# FPGA-Accelerated Embedded Neural Network 
+### Classifies handwritten numbers in real-time
+### Trained on the MNIST dataset
+
