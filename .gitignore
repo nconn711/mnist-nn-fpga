@@ -36,6 +36,7 @@
 *.done
 *.eqn
 # *.hex
+*.ver
 *.html
 *.jdi
 *.jpg
