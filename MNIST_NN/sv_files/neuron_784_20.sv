@@ -1,11 +1,11 @@
 module neuron_784_20 (
 	input logic Clk, Active,
-	input logic [8:0] Tick,
+	input logic [9:0] Tick,
 	input logic [15:0] X,
-	output logic [15:0] W,
+	input logic [15:0] W,
 	output logic [15:0] Z
 );
-	logic [42:0] accumulator;
+	logic [41:0] accumulator;
 	logic sload;
 	logic [15:0] x, w;
 	
@@ -21,10 +21,10 @@ module neuron_784_20 (
 			if (Tick == 3) 		// change based on delay
 				x = (1 << 16); 	// add bias*2^16 to accumulator
 		end
-		Z = (accumulator >> 16); // need activation function
+		Z = (accumulator >> 26); // need activation function
 	end
 	
-	mult_accum	(
+	mult_accum m0 (
 						.accum_sload(sload),
 						.clock0(Clk),
 						.dataa(x),
@@ -34,12 +34,12 @@ endmodule
 
 module neuron_20_20 (
 	input logic Clk, Active,
-	input logic [8:0] Tick,
+	input logic [9:0] Tick,
 	input [15:0] X,
-	output [15:0] W,
+	input [15:0] W,
 	output logic [15:0] Z
 );
-	logic [37:0] accumulator;
+	logic [41:0] accumulator;
 	logic sload;
 	logic [15:0] x, w;
 	
@@ -55,10 +55,10 @@ module neuron_20_20 (
 			if (Tick == 3) 		// change based on delay
 				x = (1 << 16); 	// add bias*2^16 to accumulator
 		end
-		Z = (accumulator >> 16); // need activation function
+		Z = (accumulator >> 26); // need activation function
 	end
 	
-	mult_accum	(
+	mult_accum m0 (
 						.accum_sload(sload),
 						.clock0(Clk),
 						.dataa(x),
@@ -68,12 +68,12 @@ endmodule
 
 module neuron_20_10 (
 	input logic Clk, Active,
-	input logic [8:0] Tick,
+	input logic [9:0] Tick,
 	input [15:0] X,
-	output [15:0] W,
+	input [15:0] W,
 	output logic [15:0] Z
 );
-	logic [37:0] accumulator;
+	logic [41:0] accumulator;
 	logic sload;
 	logic [15:0] x, w;
 	
@@ -89,10 +89,10 @@ module neuron_20_10 (
 			if (Tick == 3) 		// change based on delay
 				x = (1 << 16); 	// add bias*2^16 to accumulator
 		end
-		Z = (accumulator >> 16); // need activation function
+		Z = (accumulator >> 26); // need activation function
 	end
 	
-	mult_accum	(
+	mult_accum m0 (
 						.accum_sload(sload),
 						.clock0(Clk),
 						.dataa(x),

@@ -4,7 +4,7 @@ import BRAM_ADDRS::*;
 module neural_network (
 	input logic Clk, Reset, Compute,
 	output logic R,
-	output logic [15:0] Probability [9:0]
+	output logic [15:0] Probability [19:0]
 );
 
 	logic wren;
@@ -23,12 +23,12 @@ module neural_network (
 	logic active_20_20;
 	logic active_20_10;
 	
-	logic [8:0] tick;
+	logic [9:0] tick;
 	logic LD_IO;
 	
 	always_ff @ (posedge Clk) begin
 		
-		Probability <= z_20_10;
+		Probability <= w[19:0];
 		
 	end
 	
@@ -89,7 +89,7 @@ module neural_network (
 	
 	// output layer
 	
-	neuron_20_10 n3 [9:0] ( .Clk(Clk), .Active(active_20_10), .Tick(tick), .X(x), .W(w[19:10]), .Z(z_20_10) );
+	neuron_20_10 n3 [9:0] ( .Clk(Clk), .Active(active_20_10), .Tick(tick), .X(x), .W(w[9:0]), .Z(z_20_10) );
 	
 	
 	ram_weights_biases r0	(

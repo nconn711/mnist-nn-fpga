@@ -47,7 +47,7 @@ module mult_accum (
 	input	  clock0;
 	input	[15:0]  dataa;
 	input	[15:0]  datab;
-	output	[32:0]  result;
+	output	[41:0]  result;
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
@@ -59,8 +59,8 @@ module mult_accum (
 // synopsys translate_on
 `endif
 
-	wire [32:0] sub_wire0;
-	wire [32:0] result = sub_wire0[32:0];
+	wire [41:0] sub_wire0;
+	wire [41:0] result = sub_wire0[41:0];
 
 	altmult_accum	altmult_accum_component (
 				.accum_sload (accum_sload),
@@ -139,7 +139,7 @@ module mult_accum (
 		altmult_accum_component.sign_reg_b = "CLOCK0",
 		altmult_accum_component.width_a = 16,
 		altmult_accum_component.width_b = 16,
-		altmult_accum_component.width_result = 33;
+		altmult_accum_component.width_result = 42;
 
 
 endmodule
@@ -198,9 +198,9 @@ endmodule
 // Retrieval info: PRIVATE: Q_ACLR_SRC_MULT0 NUMERIC "3"
 // Retrieval info: PRIVATE: Q_CLK_SRC_MULT0 NUMERIC "0"
 // Retrieval info: PRIVATE: REG_OUT NUMERIC "1"
-// Retrieval info: PRIVATE: RNFORMAT STRING "33"
+// Retrieval info: PRIVATE: RNFORMAT STRING "42"
 // Retrieval info: PRIVATE: RQFORMAT STRING "Q1.30"
-// Retrieval info: PRIVATE: RTS_WIDTH STRING "33"
+// Retrieval info: PRIVATE: RTS_WIDTH STRING "42"
 // Retrieval info: PRIVATE: SAME_CONFIG NUMERIC "1"
 // Retrieval info: PRIVATE: SAME_CONTROL_SRC_A0 NUMERIC "1"
 // Retrieval info: PRIVATE: SAME_CONTROL_SRC_B0 NUMERIC "1"
@@ -267,15 +267,15 @@ endmodule
 // Retrieval info: CONSTANT: SIGN_REG_B STRING "CLOCK0"
 // Retrieval info: CONSTANT: WIDTH_A NUMERIC "16"
 // Retrieval info: CONSTANT: WIDTH_B NUMERIC "16"
-// Retrieval info: CONSTANT: WIDTH_RESULT NUMERIC "33"
+// Retrieval info: CONSTANT: WIDTH_RESULT NUMERIC "42"
 // Retrieval info: USED_PORT: accum_sload 0 0 0 0 INPUT GND "accum_sload"
 // Retrieval info: USED_PORT: clock0 0 0 0 0 INPUT VCC "clock0"
 // Retrieval info: USED_PORT: dataa 0 0 16 0 INPUT GND "dataa[15..0]"
 // Retrieval info: USED_PORT: datab 0 0 16 0 INPUT GND "datab[15..0]"
-// Retrieval info: USED_PORT: result 0 0 33 0 OUTPUT GND "result[32..0]"
+// Retrieval info: USED_PORT: result 0 0 42 0 OUTPUT GND "result[41..0]"
 // Retrieval info: CONNECT: @accum_sload 0 0 0 0 accum_sload 0 0 0 0
 // Retrieval info: CONNECT: @clock0 0 0 0 0 clock0 0 0 0 0
 // Retrieval info: CONNECT: @dataa 0 0 16 0 dataa 0 0 16 0
 // Retrieval info: CONNECT: @datab 0 0 16 0 datab 0 0 16 0
-// Retrieval info: CONNECT: result 0 0 33 0 @result 0 0 33 0
+// Retrieval info: CONNECT: result 0 0 42 0 @result 0 0 42 0
 // Retrieval info: LIB_FILE: altera_mf

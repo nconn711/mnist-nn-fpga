@@ -10,7 +10,7 @@ module top_level (
 	assign Clk = MAX10_CLK1_50;
 	logic reset_ah, press_ah;
 	
-	logic [15:0] probability [9:0];
+	logic [15:0] probability [19:0];
 	logic [15:0] display;
 	
 	assign display = probability[SW];

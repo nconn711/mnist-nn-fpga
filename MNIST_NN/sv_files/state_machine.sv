@@ -1,14 +1,17 @@
 module state_machine (
 	input logic Clk, Reset, Compute,
 	output logic [2:0] Layer,
-	output logic [8:0] Tick,
+	output logic [9:0] Tick,
 	output logic LD_IO
 );
 
-	logic [8:0] tick, next_tick;
+	logic [9:0] tick, next_tick;
 	logic ready, next_ready;
 	logic start [4:0];
-	logic [2:0] layer;
+	logic [2:0] layer, next_layer;
+	
+	assign Tick = tick;
+	assign Layer = layer;
 
 	enum logic [4:0] {IDLE, START, DONE, LAYER_1, LAYER_2, LAYER_3} curr_state, next_state;
 	
@@ -17,13 +20,13 @@ module state_machine (
 			curr_state <= IDLE;
 			tick <= 9'b0;
 			ready <= 1'b1;
-			Layer <= 3'b0;
+			layer <= 3'b0;
 		end
 		else begin
 			curr_state <= next_state;
 			tick <= next_tick;
 			ready <= next_ready;
-			Layer <= layer;
+			layer <= next_layer;
 		end
 	end
 	
@@ -32,7 +35,7 @@ module state_machine (
 		next_state = curr_state;
 		next_tick = tick;
 		next_ready = ready;
-		layer = 3'b0;
+		next_layer = layer;
 		LD_IO = 1'b0;
 		
 		unique case (next_state)
@@ -55,34 +58,35 @@ module state_machine (
 			START:	begin
 							next_ready = 1'b0;
 							next_tick = 9'b0;
+							next_layer = 3'b001;
 						end
 						
-			LAYER_1:	begin
-							layer = 3'b001;
-							if (tick > 784) begin
+			LAYER_1:	begin 
+							if (tick > 784)
 								LD_IO = 1'b1;
-								if (next_state == LAYER_2)
-									next_tick = 9'b0;
+							if (next_state == LAYER_2) begin
+								next_tick = 9'b0;
+								next_layer = 3'b010;
 							end
 							else
 								next_tick = tick + 1;
 						end
 			LAYER_2:	begin
-							layer = 3'b010;
-							if (tick > 20) begin
+							if (tick > 20)
 								LD_IO = 1'b1;
-								if (next_state == LAYER_3)
-									next_tick = 9'b0;
+							if (next_state == LAYER_3) begin
+								next_tick = 9'b0;
+								next_layer = 3'b100;
 							end
 							else
 								next_tick = tick + 1;
 						end
 			LAYER_3:	begin
-							layer = 3'b100;
-							if (tick > 20) begin
+							if (tick > 20)
 								LD_IO = 1'b1;
-								if (next_state == DONE)
-									next_tick = 9'b0;
+							if (next_state == DONE) begin
+								next_tick = 9'b0;
+								next_layer = 3'b000;
 							end
 							else
 								next_tick = tick + 1;
