@@ -49,5 +49,7 @@ module ram_input_output (
 				.data(D),
 				.wren(Wren),
 				.q(Q) );
+	defparam
+		r.altsyncram_component.init_file = "HEX/ram_IO.hex";
 				
 endmodule

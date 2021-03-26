@@ -6,7 +6,7 @@ package BRAM_ADDRS;
    
 	// STARTING ADDRESSES
 	
-   parameter WEIGHT_1 = 10'h1; // layer 1 weight
+   parameter WEIGHT_1 = 10'h0; // layer 1 weight
 	parameter WEIGHT_2 = 10'h312; // layer 2 weight
 	parameter WEIGHT_3 = 10'h327; // layer 3 weight
 	

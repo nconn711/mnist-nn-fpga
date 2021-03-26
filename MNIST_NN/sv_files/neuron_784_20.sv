@@ -17,11 +17,7 @@ module neuron_784_20 (
 			sload = 1'b1; 	// clear accumulator
 			x = 16'b0;		// ^^
 		end
-		else begin
-			if (Tick == 3) 		// change based on delay
-				x = (1 << 16); 	// add bias*2^16 to accumulator
-		end
-		Z = (accumulator >> 26); // need activation function
+		Z = (accumulator >> 16); // need activation function
 	end
 	
 	mult_accum m0 (
@@ -51,11 +47,7 @@ module neuron_20_20 (
 			sload = 1'b1; 	// clear accumulator
 			x = 16'b0;		// ^^
 		end
-		else begin
-			if (Tick == 3) 		// change based on delay
-				x = (1 << 16); 	// add bias*2^16 to accumulator
-		end
-		Z = (accumulator >> 26); // need activation function
+		Z = (accumulator >> 16); // need activation function
 	end
 	
 	mult_accum m0 (
@@ -85,11 +77,7 @@ module neuron_20_10 (
 			sload = 1'b1; 	// clear accumulator
 			x = 16'b0;		// ^^
 		end
-		else begin
-			if (Tick == 3) 		// change based on delay
-				x = (1 << 16); 	// add bias*2^16 to accumulator
-		end
-		Z = (accumulator >> 26); // need activation function
+		Z = (accumulator >> 16); // need activation function
 	end
 	
 	mult_accum m0 (

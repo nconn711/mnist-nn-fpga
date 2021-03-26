@@ -19,7 +19,7 @@ module neural_network (
 	logic [15:0] z_20_10 [9:0];
 	
 	logic [2:0] layer;
-	logic active_784_20;
+	logic [2:0] active;
 	logic active_20_20;
 	logic active_20_10;
 	
@@ -34,11 +34,9 @@ module neural_network (
 	
 	always_comb begin
 	
-		active_784_20 = 1'b0;
-		active_20_20 = 1'b0;
-		active_20_10 = 1'b0;
-		if (tick > 3) // change based on delay
-			{active_784_20, active_20_20, active_20_10} = layer;
+		active = 3'b0;
+		if (tick >= 2) // tick when x and w are available
+			active = layer;
 	
 		data_in = 16'b0;
 		address_r0 = 10'b0;
@@ -81,15 +79,15 @@ module neural_network (
 	
 	// first hidden layer
 	
-	neuron_784_20 n1 [19:0] ( .Clk(Clk), .Active(active_784_20), .Tick(tick), .X(x), .W(w), .Z(z_784_20) );
+	neuron_784_20 n1 [19:0] ( .Clk(Clk), .Active(active[0]), .Tick(tick), .X(x), .W(w), .Z(z_784_20) );
 	
 	// second hidden layer
 	
-	neuron_20_20 n2 [19:0] ( .Clk(Clk), .Active(active_20_20), .Tick(tick), .X(x), .W(w), .Z(z_20_20) );
+	neuron_20_20 n2 [19:0] ( .Clk(Clk), .Active(active[1]), .Tick(tick), .X(x), .W(w), .Z(z_20_20) );
 	
 	// output layer
 	
-	neuron_20_10 n3 [9:0] ( .Clk(Clk), .Active(active_20_10), .Tick(tick), .X(x), .W(w[9:0]), .Z(z_20_10) );
+	neuron_20_10 n3 [9:0] ( .Clk(Clk), .Active(active[2]), .Tick(tick), .X(x), .W(w[9:0]), .Z(z_20_10) );
 	
 	
 	ram_weights_biases r0	(
