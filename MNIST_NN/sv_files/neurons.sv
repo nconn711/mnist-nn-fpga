@@ -8,8 +8,10 @@ module neuron_784_20 (
 	logic sload;
 	logic [15:0] x, w;
 	
-	always_ff @ (posedge Clk)
+	always_ff @ (posedge Clk) begin
 		Z = Active ? (accumulator >> 13) : Z;
+		if (
+	end
 	
 	always_comb begin
 		sload = 1'b0;

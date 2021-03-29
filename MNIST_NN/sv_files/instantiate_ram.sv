@@ -36,9 +36,8 @@ module ram_weights_biases (
 endmodule
 
 module ram_input_output (
-	input logic Clk, Reset, Wren,
+	input logic Clk, Reset,
 	input logic [9:0] Address,
-	input logic [15:0] D,
 	output logic [15:0] Q
 );
 
@@ -46,8 +45,8 @@ module ram_input_output (
 	ram r (
 				.address(Address),
 				.clock(Clk),
-				.data(D),
-				.wren(Wren),
+				.data(16'b0),
+				.wren(1'b0),
 				.q(Q) );
 	defparam
 		r.altsyncram_component.init_file = "HEX/ram_IO.hex";

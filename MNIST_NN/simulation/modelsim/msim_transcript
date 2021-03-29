@@ -12,27 +12,27 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files/mult_accum.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:40 on Mar 26,2021
+# Start time: 17:29:33 on Mar 26,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files/mult_accum.v 
 # -- Compiling module mult_accum
 # 
 # Top level modules:
 # 	mult_accum
-# End time: 08:43:40 on Mar 26,2021, Elapsed time: 0:00:00
+# End time: 17:29:33 on Mar 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/ram.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:40 on Mar 26,2021
+# Start time: 17:29:33 on Mar 26,2021
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/ram.v 
 # -- Compiling module ram
 # 
 # Top level modules:
 # 	ram
-# End time: 08:43:40 on Mar 26,2021, Elapsed time: 0:00:00
+# End time: 17:29:33 on Mar 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neuron_784_20.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:40 on Mar 26,2021
+# Start time: 17:29:33 on Mar 26,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neuron_784_20.sv 
 # -- Compiling module neuron_784_20
 # -- Compiling module neuron_20_20
@@ -42,21 +42,21 @@
 # 	neuron_784_20
 # 	neuron_20_20
 # 	neuron_20_10
-# End time: 08:43:40 on Mar 26,2021, Elapsed time: 0:00:00
+# End time: 17:29:33 on Mar 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/hex_driver.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:40 on Mar 26,2021
+# Start time: 17:29:33 on Mar 26,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/hex_driver.sv 
 # -- Compiling module hex_driver
 # 
 # Top level modules:
 # 	hex_driver
-# End time: 08:43:40 on Mar 26,2021, Elapsed time: 0:00:00
+# End time: 17:29:33 on Mar 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/synchronizers.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:40 on Mar 26,2021
+# Start time: 17:29:33 on Mar 26,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/synchronizers.sv 
 # -- Compiling module sync
 # -- Compiling module sync_r0
@@ -66,41 +66,41 @@
 # 	sync
 # 	sync_r0
 # 	sync_r1
-# End time: 08:43:40 on Mar 26,2021, Elapsed time: 0:00:00
+# End time: 17:29:33 on Mar 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:40 on Mar 26,2021
+# Start time: 17:29:33 on Mar 26,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv 
 # -- Compiling module state_machine
 # 
 # Top level modules:
 # 	state_machine
-# End time: 08:43:40 on Mar 26,2021, Elapsed time: 0:00:00
+# End time: 17:29:34 on Mar 26,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/CONSTANTS.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:40 on Mar 26,2021
+# Start time: 17:29:34 on Mar 26,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/CONSTANTS.sv 
 # -- Compiling package BRAM_ADDRS
 # 
 # Top level modules:
 # 	--none--
-# End time: 08:43:40 on Mar 26,2021, Elapsed time: 0:00:00
+# End time: 17:29:34 on Mar 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/top_level.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:40 on Mar 26,2021
+# Start time: 17:29:34 on Mar 26,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/top_level.sv 
 # -- Compiling module top_level
 # 
 # Top level modules:
 # 	top_level
-# End time: 08:43:40 on Mar 26,2021, Elapsed time: 0:00:00
+# End time: 17:29:34 on Mar 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/instantiate_ram.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:40 on Mar 26,2021
+# Start time: 17:29:34 on Mar 26,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/instantiate_ram.sv 
 # -- Compiling module ram_weights_biases
 # -- Compiling module ram_input_output
@@ -108,11 +108,11 @@
 # Top level modules:
 # 	ram_weights_biases
 # 	ram_input_output
-# End time: 08:43:40 on Mar 26,2021, Elapsed time: 0:00:00
+# End time: 17:29:34 on Mar 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:40 on Mar 26,2021
+# Start time: 17:29:34 on Mar 26,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv 
 # -- Compiling package BRAM_ADDRS
 # -- Compiling package neural_network_sv_unit
@@ -121,23 +121,23 @@
 # 
 # Top level modules:
 # 	neural_network
-# End time: 08:43:41 on Mar 26,2021, Elapsed time: 0:00:01
+# End time: 17:29:34 on Mar 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/testbench.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 08:43:41 on Mar 26,2021
+# Start time: 17:29:34 on Mar 26,2021
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files" C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/testbench.sv 
 # -- Compiling module testbench
 # 
 # Top level modules:
 # 	testbench
-# End time: 08:43:41 on Mar 26,2021, Elapsed time: 0:00:00
+# End time: 17:29:34 on Mar 26,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  testbench
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" testbench 
-# Start time: 08:43:41 on Mar 26,2021
+# Start time: 17:29:34 on Mar 26,2021
 # Loading sv_std.std
 # Loading work.testbench
 # Loading work.top_level
@@ -166,21 +166,22 @@
 # add wave -noupdate -label Clk /testbench/Clk
 # add wave -noupdate -label KEY /testbench/KEY
 # add wave -noupdate -label SW -radix hexadecimal /testbench/SW
-# add wave -noupdate -label State /testbench/top/nn/s0/curr_state
-# add wave -noupdate -label Tick -radix unsigned /testbench/top/nn/tick
+# add wave -noupdate -label state /testbench/top/nn/s0/curr_state
+# add wave -noupdate -label tick -radix decimal /testbench/top/nn/tick
 # add wave -noupdate -label address_r0 -radix hexadecimal /testbench/top/nn/address_r0
-# add wave -noupdate -label {w[0]} -radix hexadecimal {/testbench/top/nn/w[0]}
 # add wave -noupdate -label address_r1 -radix hexadecimal /testbench/top/nn/address_r1
-# add wave -noupdate -label x -radix hexadecimal /testbench/top/nn/x
-# add wave -noupdate -label {n1[0]|accumulator} -radix hexadecimal -radixshowbase 0 {/testbench/top/nn/n1[0]/accumulator}
-# add wave -noupdate -label {n1[0]|Active} {/testbench/top/nn/n1[0]/Active}
-# add wave -noupdate -label sload {/testbench/top/nn/n1[0]/sload}
-# add wave -noupdate -label Z -radix hexadecimal {/testbench/top/nn/n1[0]/Z}
+# add wave -noupdate -label x -radix decimal /testbench/top/nn/x
+# add wave -noupdate -label w -radix decimal -childformat {{{/testbench/top/nn/w[19]} -radix decimal} {{/testbench/top/nn/w[18]} -radix decimal} {{/testbench/top/nn/w[17]} -radix decimal} {{/testbench/top/nn/w[16]} -radix decimal} {{/testbench/top/nn/w[15]} -radix decimal} {{/testbench/top/nn/w[14]} -radix decimal} {{/testbench/top/nn/w[13]} -radix decimal} {{/testbench/top/nn/w[12]} -radix decimal} {{/testbench/top/nn/w[11]} -radix decimal} {{/testbench/top/nn/w[10]} -radix decimal} {{/testbench/top/nn/w[9]} -radix decimal} {{/testbench/top/nn/w[8]} -radix decimal} {{/testbench/top/nn/w[7]} -radix decimal} {{/testbench/top/nn/w[6]} -radix decimal} {{/testbench/top/nn/w[5]} -radix decimal} {{/testbench/top/nn/w[4]} -radix decimal} {{/testbench/top/nn/w[3]} -radix decimal} {{/testbench/top/nn/w[2]} -radix decimal} {{/testbench/top/nn/w[1]} -radix decimal} {{/testbench/top/nn/w[0]} -radix decimal}} -subitemconfig {{/testbench/top/nn/w[19]} {-radix decimal} {/testbench/top/nn/w[18]} {-radix decimal} {/testbench/top/nn/w[17]} {-radix decimal} {/testbench/top/nn/w[16]} {-radix decimal} {/testbench/top/nn/w[15]} {-radix decimal} {/testbench/top/nn/w[14]} {-radix decimal} {/testbench/top/nn/w[13]} {-radix decimal} {/testbench/top/nn/w[12]} {-radix decimal} {/testbench/top/nn/w[11]} {-radix decimal} {/testbench/top/nn/w[10]} {-radix decimal} {/testbench/top/nn/w[9]} {-radix decimal} {/testbench/top/nn/w[8]} {-radix decimal} {/testbench/top/nn/w[7]} {-radix decimal} {/testbench/top/nn/w[6]} {-radix decimal} {/testbench/top/nn/w[5]} {-radix decimal} {/testbench/top/nn/w[4]} {-radix decimal} {/testbench/top/nn/w[3]} {-radix decimal} {/testbench/top/nn/w[2]} {-radix decimal} {/testbench/top/nn/w[1]} {-radix decimal} {/testbench/top/nn/w[0]} {-radix decimal}} /testbench/top/nn/w
+# add wave -noupdate -label z_1 -radix decimal -childformat {{{/testbench/top/nn/z_1[19]} -radix decimal} {{/testbench/top/nn/z_1[18]} -radix decimal} {{/testbench/top/nn/z_1[17]} -radix decimal} {{/testbench/top/nn/z_1[16]} -radix decimal} {{/testbench/top/nn/z_1[15]} -radix decimal} {{/testbench/top/nn/z_1[14]} -radix decimal} {{/testbench/top/nn/z_1[13]} -radix decimal} {{/testbench/top/nn/z_1[12]} -radix decimal} {{/testbench/top/nn/z_1[11]} -radix decimal} {{/testbench/top/nn/z_1[10]} -radix decimal} {{/testbench/top/nn/z_1[9]} -radix decimal} {{/testbench/top/nn/z_1[8]} -radix decimal} {{/testbench/top/nn/z_1[7]} -radix decimal} {{/testbench/top/nn/z_1[6]} -radix decimal} {{/testbench/top/nn/z_1[5]} -radix decimal} {{/testbench/top/nn/z_1[4]} -radix decimal} {{/testbench/top/nn/z_1[3]} -radix decimal} {{/testbench/top/nn/z_1[2]} -radix decimal} {{/testbench/top/nn/z_1[1]} -radix decimal} {{/testbench/top/nn/z_1[0]} -radix decimal}} -subitemconfig {{/testbench/top/nn/z_1[19]} {-radix decimal} {/testbench/top/nn/z_1[18]} {-radix decimal} {/testbench/top/nn/z_1[17]} {-radix decimal} {/testbench/top/nn/z_1[16]} {-radix decimal} {/testbench/top/nn/z_1[15]} {-radix decimal} {/testbench/top/nn/z_1[14]} {-radix decimal} {/testbench/top/nn/z_1[13]} {-radix decimal} {/testbench/top/nn/z_1[12]} {-radix decimal} {/testbench/top/nn/z_1[11]} {-radix decimal} {/testbench/top/nn/z_1[10]} {-radix decimal} {/testbench/top/nn/z_1[9]} {-radix decimal} {/testbench/top/nn/z_1[8]} {-radix decimal} {/testbench/top/nn/z_1[7]} {-radix decimal} {/testbench/top/nn/z_1[6]} {-radix decimal} {/testbench/top/nn/z_1[5]} {-radix decimal} {/testbench/top/nn/z_1[4]} {-radix decimal} {/testbench/top/nn/z_1[3]} {-radix decimal} {/testbench/top/nn/z_1[2]} {-radix decimal} {/testbench/top/nn/z_1[1]} {-radix decimal} {/testbench/top/nn/z_1[0]} {-radix decimal}} /testbench/top/nn/z_1
+# add wave -noupdate -label z_2 -radix decimal /testbench/top/nn/z_2
+# add wave -noupdate -label z_3 -radix decimal /testbench/top/nn/z_3
+# add wave -noupdate -radix decimal {/testbench/top/nn/n1[19]/accumulator}
+# add wave -noupdate {/testbench/top/nn/n1[19]/Active}
 # TreeUpdate [SetDefaultTree]
-# WaveRestoreCursors {{Cursor 1} {420821 ps} 0}
+# WaveRestoreCursors {{Cursor 2} {16141650 ps} 0}
 # quietly wave cursor active 1
-# configure wave -namecolwidth 138
-# configure wave -valuecolwidth 79
+# configure wave -namecolwidth 150
+# configure wave -valuecolwidth 100
 # configure wave -justifyvalue left
 # configure wave -signalnamewidth 0
 # configure wave -snapdistance 10
@@ -193,19 +194,20 @@
 # configure wave -timeline 0
 # configure wave -timelineunits ns
 # update
-# WaveRestoreZoom {287157 ps} {612934 ps}
+# WaveRestoreZoom {15917767 ps} {16246843 ps}
 add log -r sim:/testbench/top/nn/*
 run
-# ** Warning: (vsim-8315) C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv(41): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv(35): No condition is true in the unique/priority if/case statement.
 #    Time: 0 ps  Iteration: 0  Instance: /testbench/top/nn/s0
-# ** Warning: (vsim-8315) C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv(55): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv(49): No condition is true in the unique/priority if/case statement.
 #    Time: 0 ps  Iteration: 0  Instance: /testbench/top/nn/s0
-run
-# ** Warning: (vsim-8315) C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv(41): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv(35): No condition is true in the unique/priority if/case statement.
 #    Time: 10 ns  Iteration: 3  Instance: /testbench/top/nn/s0
-# ** Warning: (vsim-8315) C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv(55): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv(49): No condition is true in the unique/priority if/case statement.
 #    Time: 10 ns  Iteration: 3  Instance: /testbench/top/nn/s0
+# ** Warning: (vsim-8315) C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv(49): No condition is true in the unique/priority if/case statement.
+#    Time: 330 ns  Iteration: 3  Instance: /testbench/top/nn/s0
 run
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/simulation/modelsim/wave_0.do
-# End time: 09:31:35 on Mar 26,2021, Elapsed time: 0:47:54
-# Errors: 0, Warnings: 4
+add wave -position end  sim:/testbench/top/nn/n3[9]/accumulator
+# End time: 17:21:03 on Mar 28,2021, Elapsed time: 47:51:29
+# Errors: 0, Warnings: 5

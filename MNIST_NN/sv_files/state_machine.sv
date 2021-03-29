@@ -1,95 +1,83 @@
 module state_machine (
 	input logic Clk, Reset, Compute,
 	output logic [2:0] Layer,
+	output logic [2:0] Active,
 	output logic [9:0] Tick,
-	output logic LD_IO
+	output logic R
 );
 
-	logic [9:0] tick, next_tick;
-	logic ready, next_ready;
-	logic start [4:0];
-	logic [2:0] layer, next_layer;
-	
-	assign Tick = tick;
-	assign Layer = layer;
+	logic [9:0] next_tick;
+	logic next_R;
 
-	enum logic [4:0] {IDLE, START, DONE, LAYER_1, LAYER_2, LAYER_3} curr_state, next_state;
+	enum logic [4:0] {IDLE, START, DONE, LOAD_1, LOAD_2, LOAD_3} curr_state, next_state;
 	
 	always_ff @ (posedge Clk) begin
 		if (Reset) begin
 			curr_state <= IDLE;
-			tick <= 9'b0;
-			ready <= 1'b1;
-			layer <= 3'b0;
+			Tick <= 9'b0;
+			R <= 1'b1;
 		end
 		else begin
 			curr_state <= next_state;
-			tick <= next_tick;
-			ready <= next_ready;
-			layer <= next_layer;
+			Tick <= next_tick;
+			R <= next_R;
 		end
 	end
 	
 	always_comb begin
 	
 		next_state = curr_state;
-		next_tick = tick;
-		next_ready = ready;
-		next_layer = layer;
-		LD_IO = 1'b0;
+		next_tick = Tick;
+		next_R = R;
+		Layer = 3'b0;
+		Active = 3'b0;
 		
 		unique case (next_state)
 			IDLE:			if (Compute)
 								next_state = START;
+			START:		next_state = LOAD_1;
+			LOAD_1:		if (Tick > 785 + 4)
+								next_state = LOAD_2;
+			LOAD_2:		if (Tick > 21 + 4)
+								next_state = LOAD_3;
+			LOAD_3:		if (Tick > 21 + 4)
+								next_state = DONE;
 			DONE:			if (~Compute)
 								next_state = IDLE;
-			START:		next_state = LAYER_1; // start forward propagation
-			LAYER_1:		if (tick > 784 + 3) // change delay maybe
-								next_state = LAYER_2;
-			LAYER_2:		if (tick > 20 + 3) // ^^
-								next_state = LAYER_3;
-			LAYER_3:		if (tick > 20 + 3) // ^^
-								next_state = DONE;
 		endcase
 		
 		unique case (curr_state)
-			IDLE:			next_ready = 1'b1;
-			DONE:			next_ready = 1'b1;
-			START:	begin
-							next_ready = 1'b0;
-							next_tick = 9'b0;
-							next_layer = 3'b001;
-						end
-						
-			LAYER_1:	begin 
-							if (tick > 784)
-								LD_IO = 1'b1;
-							if (next_state == LAYER_2) begin
+			IDLE, DONE:	next_R = 1'b1;
+			LOAD_1:	begin 
+							if (next_state == LOAD_2)
 								next_tick = 9'b0;
-								next_layer = 3'b010;
+							else begin
+								next_tick = Tick + 1;
+								Layer = 3'b001;
+								if (Tick >= 2)
+									Active = 3'b001;
 							end
-							else
-								next_tick = tick + 1;
 						end
-			LAYER_2:	begin
-							if (tick > 20)
-								LD_IO = 1'b1;
-							if (next_state == LAYER_3) begin
+			LOAD_2:	begin 
+							if (next_state == LOAD_3)
 								next_tick = 9'b0;
-								next_layer = 3'b100;
+							else begin
+								next_tick = Tick + 1;
+								Layer = 3'b010;
+								if (Tick >= 2)
+									Active = 3'b010;
 							end
-							else
-								next_tick = tick + 1;
 						end
-			LAYER_3:	begin
-							if (tick > 20)
-								LD_IO = 1'b1;
+			LOAD_3:	begin 
 							if (next_state == DONE) begin
 								next_tick = 9'b0;
-								next_layer = 3'b000;
 							end
-							else
-								next_tick = tick + 1;
+							else begin
+								next_tick = Tick + 1;
+								Layer = 3'b100;
+								if (Tick >= 2)
+									Active = 3'b100;
+							end
 						end
 								
 		endcase
