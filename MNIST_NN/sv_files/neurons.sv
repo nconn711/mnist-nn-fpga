@@ -10,7 +10,6 @@ module neuron_784_20 (
 	
 	always_ff @ (posedge Clk) begin
 		Z = Active ? (accumulator >> 13) : Z;
-		if (
 	end
 	
 	always_comb begin
@@ -42,7 +41,7 @@ module neuron_20_20 (
 	logic [15:0] x, w;
 	
 	always_ff @ (posedge Clk)
-	Z = Active ? (accumulator >> 13) : Z;
+		Z = Active ? (accumulator >> 13) : Z;
 	
 	always_comb begin
 		sload = 1'b0;
@@ -73,7 +72,7 @@ module neuron_20_10 (
 	logic [15:0] x, w;
 	
 	always_ff @ (posedge Clk)
-	Z = Active ? (accumulator >> 13) : Z;
+		Z = Active ? (accumulator >> 13) : Z;
 	
 	always_comb begin
 		sload = 1'b0;
