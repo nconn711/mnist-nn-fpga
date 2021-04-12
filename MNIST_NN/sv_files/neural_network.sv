@@ -4,11 +4,12 @@ import BRAM_ADDRS::*;
 module neural_network (
 	input logic Clk, Reset, Compute,
 	output logic R,
-	output logic [15:0] Probability [19:0]
+	output logic [15:0] Probability [9:0]
 );
 
 	logic [9:0] address_r0, address_r1;
-	logic [15:0] q;
+	logic [15:0] address_r2;
+	logic [15:0] q, sigmoid;
 	
 	logic [15:0] x;
 	logic [15:0] w [19:0];
@@ -18,34 +19,57 @@ module neural_network (
 	
 	logic [2:0] layer;
 	logic [2:0] active;
+	logic actFuncActive;
 	
 	logic [9:0] tick;
 	
 	always_ff @ (posedge Clk) begin
 		
-		Probability <= w[19:0];
-		
+		if (Reset)
+			Probability <= {10{16'b0}};
+		else if (R)
+			Probability <= z_3[9:0];
+		else if (actFuncActive) begin
+			case (layer)
+				3'b001:		begin
+								if (tick-2 < 20)
+									z_1[tick-2] <= sigmoid;
+							end
+				3'b010:		begin
+								if (tick-2 < 20)
+									z_2[tick-2] <= sigmoid;
+							end
+				3'b100:		begin
+								if (tick-2 < 10)
+									z_3[tick-2] <= sigmoid;
+							end	
+			endcase
+		end
 	end
 	
 	always_comb begin
 	
 		address_r0 = 10'b0;
 		address_r1 = 10'b0;
+		address_r2 = 16'b0;
 		x = 16'b0;
 		
 		case (layer)
 			3'b001: 	begin
 							address_r0 = WEIGHT_1 + tick;
 							address_r1 = INPUT + tick;
-							x = q;
+							address_r2 = (tick < 20) ? SIGMOID + z_1[tick] : 16'b0;
+							x = (tick-2 < 784) ? q : 1<<13;
 						end
 			3'b010: 	begin
 							address_r0 = WEIGHT_2 + tick;
+							address_r2 = (tick < 20) ? SIGMOID + z_2[tick] : 16'b0;
 							if (active & 3'b010)
 								x = (tick-2 < 20) ? z_1[tick - 2] : 1<<13;
 						end
 			3'b100: 	begin
 							address_r0 = WEIGHT_3 + tick;
+							address_r2 = (tick < 10) ? SIGMOID + z_3[tick] : 16'b0;
 							if (active & 3'b100)
 								x = (tick-2 < 20) ? z_2[tick - 2] : 1<<13;
 						end
@@ -56,7 +80,7 @@ module neural_network (
 	state_machine s0	(
 								.Clk(Clk), .Reset(Reset), .Compute(Compute),
 								.Layer(layer), .Active(active),
-								.Tick(tick), .R(R)
+								.Tick(tick), .ActFuncActive(actFuncActive), .R(R)
 							);
 	
 	// first hidden layer
@@ -85,5 +109,12 @@ module neural_network (
 									.Address(address_r1),
 									.Q(q)
 								);
+
+	sdram_sigmoid r2	(
+						.Clk(Clk),
+						.Reset(Reset),
+						.Address(address_r2),
+						.Q(sigmoid)
+					);
 
 endmodule

@@ -52,3 +52,21 @@ module ram_input_output (
 		r.altsyncram_component.init_file = "HEX/ram_IO.hex";
 				
 endmodule
+
+module sdram_sigmoid (
+	input logic Clk, Reset,
+	input logic [15:0] Address,
+	output logic [15:0] Q
+);
+
+
+	sdram r (
+				.address(Address),
+				.clock(Clk),
+				.data(16'b0),
+				.wren(1'b0),
+				.q(Q) );
+	defparam
+		r.altsyncram_component.init_file = "HEX/ram_sigmoid.hex";
+				
+endmodule
