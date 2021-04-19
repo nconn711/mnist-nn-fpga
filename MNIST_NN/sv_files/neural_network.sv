@@ -59,19 +59,19 @@ module neural_network (
 							address_r0 = WEIGHT_1 + tick;
 							address_r1 = INPUT + tick;
 							address_r2 = (tick < 20) ? SIGMOID + z_1_out[tick] : 16'b0;
-							x = (tick-2 < 784) ? q : 1<<13;
+							x = (tick-2 < 784) ? q : 1<<11; // based off resolution
 						end
 			3'b010: 	begin
 							address_r0 = WEIGHT_2 + tick;
 							address_r2 = (tick < 20) ? SIGMOID + z_2_out[tick] : 16'b0;
 							if (active & 3'b010)
-								x = (tick-2 < 20) ? z_1_in[tick - 2] : 1<<13;
+								x = (tick-2 < 20) ? z_1_in[tick - 2] : 1<<11;
 						end
 			3'b100: 	begin
 							address_r0 = WEIGHT_3 + tick;
 							address_r2 = (tick < 10) ? SIGMOID + z_3_out[tick] : 16'b0;
 							if (active & 3'b100)
-								x = (tick-2 < 20) ? z_2_in[tick - 2] : 1<<13;
+								x = (tick-2 < 20) ? z_2_in[tick - 2] : 1<<11;
 						end
 		endcase
 		
