@@ -40,15 +40,15 @@ module state_machine (
 			START:		next_state = LOAD_1;
 			LOAD_1:		if (Tick > 785 + 4)
 							next_state = ACT_1;
-			ACT_1:		if (Tick > 20 + 2)
+			ACT_1:		if (Tick > 20)
 							next_state = LOAD_2;
 			LOAD_2:		if (Tick > 21 + 4)
 							next_state = ACT_2;
-			ACT_2:		if (Tick > 20 + 2)
+			ACT_2:		if (Tick > 20)
 							next_state = LOAD_3;
 			LOAD_3:		if (Tick > 21 + 4)
 							next_state = ACT_3;
-			ACT_3:		if (Tick > 10 + 2)
+			ACT_3:		if (Tick > 10)
 							next_state = DONE;
 			DONE:		if (~Compute)
 							next_state = IDLE;
@@ -56,8 +56,9 @@ module state_machine (
 		
 		unique case (curr_state)
 			IDLE, DONE:	next_R = 1'b1;
+			START: next_R = 1'b0;
 			LOAD_1:	begin 
-						if (next_state == ACT_2)
+						if (next_state == ACT_1)
 							next_tick = 9'b0;
 						else begin
 							next_tick = Tick + 1;
@@ -71,10 +72,10 @@ module state_machine (
 							next_tick = 9'b0;
 						else begin
 							next_tick = Tick + 1;
-							Layer = 3'b001;
-							if (Tick >= 2)
-								ActFuncActive = 1'b1;
 						end
+						Layer = 3'b001;
+						if (Tick >= 2)
+							ActFuncActive = 1'b1;
 					end
 			LOAD_2:	begin 
 						if (next_state == ACT_2)
@@ -91,10 +92,10 @@ module state_machine (
 							next_tick = 9'b0;
 						else begin
 							next_tick = Tick + 1;
-							Layer = 3'b001;
-							if (Tick >= 2)
-								ActFuncActive = 1'b1;
 						end
+						Layer = 3'b010;
+						if (Tick >= 2)
+							ActFuncActive = 1'b1;
 					end
 			LOAD_3:	begin 
 						if (next_state == ACT_3) begin
@@ -112,10 +113,10 @@ module state_machine (
 							next_tick = 9'b0;
 						else begin
 							next_tick = Tick + 1;
-							Layer = 3'b001;
-							if (Tick >= 2)
-								ActFuncActive = 1'b1;
 						end
+						Layer = 3'b100;
+						if (Tick >= 2)
+							ActFuncActive = 1'b1;
 					end
 								
 		endcase

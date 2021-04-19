@@ -10,32 +10,32 @@ cModel Technology
 Z0 dC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/simulation/modelsim
 XBRAM_ADDRS
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1616797774
+Z2 !s110 1618863294
 !i10b 1
-!s100 DMSa0e`AdiKNCaDEiHVb`0
-Ig=50:^cFcnfW:]jn27QOa1
-Vg=50:^cFcnfW:]jn27QOa1
+!s100 o1SdOHaOTScJBfJ8=k^X70
+I=0<Ub^8YZg[m4mF]`OF;<0
+V=0<Ub^8YZg[m4mF]`OF;<0
 S1
 R0
-w1616739667
+Z3 w1618265996
 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/CONSTANTS.sv
-Z3 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/CONSTANTS.sv
+Z4 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/CONSTANTS.sv
 L0 5
-Z4 OV;L;10.5b;63
+Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1616797774.000000
-Z6 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/CONSTANTS.sv|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv|
-Z7 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv|
+Z6 !s108 1618863294.000000
+Z7 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/CONSTANTS.sv|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv|
+Z8 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv|
 !i113 1
-Z8 o-sv -work work
-Z9 !s92 -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files
-Z10 tCvgOpt 0
+Z9 o-sv -work work
+Z10 !s92 -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files
+Z11 tCvgOpt 0
 n@b@r@a@m_@a@d@d@r@s
 vhex_driver
 R1
-Z11 !s110 1616797773
+R2
 !i10b 1
 !s100 lKYC`If<1>IHK5zMnC@VX3
 I`YJM[@kVZVA6?3BMo;3>o0
@@ -47,19 +47,19 @@ Z13 w1616620348
 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/hex_driver.sv
 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/hex_driver.sv
 L0 1
-R4
+R5
 r1
 !s85 0
 31
-Z14 !s108 1616797773.000000
+R6
 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/hex_driver.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/hex_driver.sv|
 !i113 1
-R8
 R9
 R10
-vmult_accum
 R11
+vmult_accum
+Z14 !s110 1618863293
 !i10b 1
 !s100 8Ze5DEgYF@P:IWgHY2;9B3
 Ij8MHT>Yj]K[]Z<<[jNO_O2
@@ -69,146 +69,146 @@ w1616631347
 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files/mult_accum.v
 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files/mult_accum.v
 Z15 L0 39
-R4
+R5
 r1
 !s85 0
 31
-R14
+Z16 !s108 1618863293.000000
 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files/mult_accum.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files/mult_accum.v|
 !i113 1
-Z16 o-vlog01compat -work work
+Z17 o-vlog01compat -work work
 !s92 -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files
-R10
+R11
 vneural_network
 R1
-Z17 DXx4 work 10 BRAM_ADDRS 0 22 g=50:^cFcnfW:]jn27QOa1
-DXx4 work 22 neural_network_sv_unit 0 22 RJB<TOXH7^ZfS_OQRf9[80
+Z18 DXx4 work 10 BRAM_ADDRS 0 22 =0<Ub^8YZg[m4mF]`OF;<0
+DXx4 work 22 neural_network_sv_unit 0 22 `LhG:6QYQ5E:Gc2:m2ncL1
 R12
 r1
 !s85 0
 31
 !i10b 1
-!s100 XNKPeb<R]nRgWn^_FRO412
-IKP1N?4Vg4LV[mHG`WN6CO0
+!s100 @JR?<C_oWFME9c^dbjSkW3
+ILi=JNcEn>Pih3jnEO;YEk1
 !s105 neural_network_sv_unit
 S1
 R0
-Z18 w1616797679
-Z19 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv
-Z20 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv
+Z19 w1618860820
+Z20 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv
+Z21 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv
 L0 4
-R4
 R5
 R6
 R7
-!i113 1
 R8
+!i113 1
 R9
 R10
+R11
 Xneural_network_sv_unit
 R1
-R17
-VRJB<TOXH7^ZfS_OQRf9[80
+R18
+V`LhG:6QYQ5E:Gc2:m2ncL1
 r1
 !s85 0
 31
 !i10b 1
-!s100 ?ggE`LDgE8lDgM@5AN2QX1
-IRJB<TOXH7^ZfS_OQRf9[80
+!s100 ^Xm<Q3:<j8^>OmVXf]iOL1
+I`LhG:6QYQ5E:Gc2:m2ncL1
 !i103 1
 S1
 R0
-R18
 R19
 R20
-R3
-L0 2
+R21
 R4
+L0 2
 R5
 R6
 R7
-!i113 1
 R8
+!i113 1
 R9
 R10
+R11
 vneuron_20_10
 R1
-R11
+R14
 !i10b 1
-!s100 c:UCjFP2=T^@AbPFQgHZ@0
-ImGTDNHbad`hl0M;GHlNXT2
+!s100 Z]=AdKF:1BJ_G6c=[XHMa2
+IRX1@6B[m@9fg3DPP47zz=1
 R12
-Z21 !s105 neuron_784_20_sv_unit
+Z22 !s105 neurons_sv_unit
 S1
 R0
-Z22 w1616782003
-Z23 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neuron_784_20.sv
-Z24 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neuron_784_20.sv
-L0 63
-R4
+R3
+Z23 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neurons.sv
+Z24 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neurons.sv
+L0 64
+R5
 r1
 !s85 0
 31
-R14
-Z25 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neuron_784_20.sv|
-Z26 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neuron_784_20.sv|
+R16
+Z25 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neurons.sv|
+Z26 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neurons.sv|
 !i113 1
-R8
 R9
 R10
+R11
 vneuron_20_20
 R1
-R11
+R14
 !i10b 1
-!s100 <Z0P>]fijCV]];Z3_Hj?D2
-IS?U7FGJN=4TYJOSSiC];S3
+!s100 :kh;eVzC[h6LN4oLTUeI=3
+If5iYW^E4T@?3TYhS`U`hY0
 R12
-R21
+R22
 S1
 R0
-R22
+R3
 R23
 R24
-L0 32
-R4
+L0 33
+R5
 r1
 !s85 0
 31
-R14
+R16
 R25
 R26
 !i113 1
-R8
 R9
 R10
+R11
 vneuron_784_20
 R1
-R11
+R14
 !i10b 1
-!s100 @?IHdI0>MCiP:VQ3O:S2_0
-IlQGLgXdm2?bCBh=Gk[ajh1
+!s100 MHK4IaH8G^[8miDM?MBGa0
+IEKXQX5aj1Km_zF2OOk_7V2
 R12
-R21
+R22
 S1
 R0
-R22
+R3
 R23
 R24
 L0 1
-R4
+R5
 r1
 !s85 0
 31
-R14
+R16
 R25
 R26
 !i113 1
-R8
 R9
 R10
-vram
 R11
+vram
+R14
 !i10b 1
 !s100 Qoe7AnVa9AOU>G<NAzbIj3
 I1jn[J>jR663<>i27EoA9C3
@@ -218,17 +218,17 @@ w1616695638
 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/ram.v
 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/ram.v
 R15
-R4
+R5
 r1
 !s85 0
 31
-R14
+R16
 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/ram.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/ram.v|
 !i113 1
-R16
-!s92 -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files
-R10
+R17
+Z27 !s92 -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files
+R11
 vram_input_output
 R1
 R2
@@ -236,24 +236,24 @@ R2
 !s100 `L?_X0KL30g9fV7FaK4^o3
 IZi8T?chcL_FWR<4;h]PYG0
 R12
-Z27 !s105 instantiate_ram_sv_unit
+Z28 !s105 instantiate_ram_sv_unit
 S1
 R0
-Z28 w1616795466
+R3
 Z29 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/instantiate_ram.sv
 Z30 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/instantiate_ram.sv
 L0 38
-R4
+R5
 r1
 !s85 0
 31
-R5
+R6
 Z31 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/instantiate_ram.sv|
 Z32 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/instantiate_ram.sv|
 !i113 1
-R8
 R9
 R10
+R11
 vram_weights_biases
 R1
 R2
@@ -261,52 +261,99 @@ R2
 !s100 bN]1@N@gMn?G6TC6HD2nE0
 I;^n`O<IMo:R7UEOK3iAAV2
 R12
-R27
+R28
 S1
 R0
-R28
+R3
 R29
 R30
 L0 1
-R4
+R5
 r1
 !s85 0
 31
-R5
+R6
 R31
 R32
 !i113 1
-R8
 R9
 R10
+R11
+vrom
+R14
+!i10b 1
+!s100 g`5JDnDE?[EzgL`D`K@:T0
+IUlnKilj1U3fHzf?_8=zYL0
+R12
+R0
+w1618860151
+8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/rom.v
+FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/rom.v
+R15
+R5
+r1
+!s85 0
+31
+R16
+!s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/rom.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/rom.v|
+!i113 1
+R17
+R27
+R11
+vsdram_sigmoid
+R1
+R2
+!i10b 1
+!s100 9Dn`48Z7M3f7G`>GIM>_i1
+I?VkWk_O^8A>eImQiCl6752
+R12
+R28
+S1
+R0
+R3
+R29
+R30
+L0 56
+R5
+r1
+!s85 0
+31
+R6
+R31
+R32
+!i113 1
+R9
+R10
+R11
 vstate_machine
 R1
 R2
 !i10b 1
-!s100 iISEPECHCamUcVISBziD41
-IH[?;]FM?Ei0ML[79Mk1F?0
+!s100 MdjKj4@?=9FT0POJ=H3PH0
+IGWj3bjD@A56fDc`fa_bAz1
 R12
 !s105 state_machine_sv_unit
 S1
 R0
-w1616797381
+w1618863249
 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv
 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv
 L0 1
-R4
+R5
 r1
 !s85 0
 31
-R14
+R6
 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv|
 !i113 1
-R8
 R9
 R10
+R11
 vsync
 R1
-R11
+R2
 !i10b 1
 !s100 OHNUFN]797>kYzRL;ikZR2
 I^KZmeal=b4fbfRooKK6;d0
@@ -318,20 +365,20 @@ R13
 Z34 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/synchronizers.sv
 Z35 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/synchronizers.sv
 L0 7
-R4
+R5
 r1
 !s85 0
 31
-R14
+R6
 Z36 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/synchronizers.sv|
 Z37 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/synchronizers.sv|
 !i113 1
-R8
 R9
 R10
+R11
 vsync_r0
 R1
-R11
+R2
 !i10b 1
 !s100 _Sn:CfHFjznVZen=7jc>C2
 IKUNinQ_alBB]RzVkzGETz0
@@ -343,20 +390,20 @@ R13
 R34
 R35
 L0 21
-R4
+R5
 r1
 !s85 0
 31
-R14
+R6
 R36
 R37
 !i113 1
-R8
 R9
 R10
+R11
 vsync_r1
 R1
-R11
+R2
 !i10b 1
 !s100 4jfZd?z`MK2Y<NLFC0<QH2
 I6VK4zT?lca[BMJ^^M=B:I1
@@ -368,17 +415,17 @@ R13
 R34
 R35
 L0 42
-R4
+R5
 r1
 !s85 0
 31
-R14
+R6
 R36
 R37
 !i113 1
-R8
 R9
 R10
+R11
 vtestbench
 R1
 R2
@@ -393,39 +440,39 @@ w1616630856
 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/testbench.sv
 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/testbench.sv
 L0 1
-R4
+R5
 r1
 !s85 0
 31
-R5
+R6
 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/testbench.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/testbench.sv|
 !i113 1
-R8
 R9
 R10
+R11
 vtop_level
 R1
 R2
 !i10b 1
-!s100 mTbb_6Z0W<]_c6Cc]210M1
-ILgK^g^Wj;B[4f1UT589`41
+!s100 eYVB@`dK^4>o6Ncm3TfWT1
+I<6B>HIY]VMQlo`^Kg5<^A3
 R12
 !s105 top_level_sv_unit
 S1
 R0
-w1616637994
+w1618861101
 8C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/top_level.sv
 FC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/top_level.sv
 L0 1
-R4
+R5
 r1
 !s85 0
 31
-R5
+R6
 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/top_level.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/top_level.sv|
 !i113 1
-R8
 R9
 R10
+R11
