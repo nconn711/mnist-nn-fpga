@@ -31,7 +31,7 @@
 # ignore Quartus II generated files
 *_generation_script*
 *_inst.vhd
-*.bak
+*.bak*
 *.cmp
 *.done
 *.eqn

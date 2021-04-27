@@ -2,8 +2,9 @@
 import BRAM_ADDRS::*;
 
 module neural_network (
-	input logic Clk, Reset, Compute,
-	output logic R,
+	input logic Clk, Reset,
+	input logic Compute,
+	output logic Ready,
 	output logic [15:0] Probability [9:0]
 );
 
@@ -13,9 +14,9 @@ module neural_network (
 	
 	logic [15:0] x;
 	logic [15:0] w [19:0];
-	logic [15:0] z_1_out [19:0], z_1_in [19:0];
-	logic [15:0] z_2_out [19:0], z_2_in [19:0];
-	logic [15:0] z_3_out [9:0], z_3_in [9:0];
+	logic [15:0] z_1_out [19:0], z_1_sig [19:0];
+	logic [15:0] z_2_out [19:0], z_2_sig [19:0];
+	logic [15:0] z_3_out [9:0], z_3_sig [9:0];
 	
 	logic [2:0] layer;
 	logic [2:0] active;
@@ -33,15 +34,15 @@ module neural_network (
 			case (layer)
 				3'b001:		begin
 								if (tick-2 < 20)
-									z_1_in[tick-2] <= sigmoid;
+									z_1_sig[tick-2] <= sigmoid;
 							end
 				3'b010:		begin
 								if (tick-2 < 20)
-									z_2_in[tick-2] <= sigmoid;
+									z_2_sig[tick-2] <= sigmoid;
 							end
 				3'b100:		begin
 								if (tick-2 < 10)
-									z_3_in[tick-2] <= sigmoid;
+									z_3_sig[tick-2] <= sigmoid;
 							end	
 			endcase
 		end
@@ -65,13 +66,13 @@ module neural_network (
 							address_r0 = WEIGHT_2 + tick;
 							address_r2 = (tick < 20) ? SIGMOID + z_2_out[tick] : 16'b0;
 							if (active & 3'b010)
-								x = (tick-2 < 20) ? z_1_in[tick - 2] : 1<<11;
+								x = (tick-2 < 20) ? z_1_sig[tick - 2] : 1<<11;
 						end
 			3'b100: 	begin
 							address_r0 = WEIGHT_3 + tick;
 							address_r2 = (tick < 10) ? SIGMOID + z_3_out[tick] : 16'b0;
 							if (active & 3'b100)
-								x = (tick-2 < 20) ? z_2_in[tick - 2] : 1<<11;
+								x = (tick-2 < 20) ? z_2_sig[tick - 2] : 1<<11;
 						end
 		endcase
 		

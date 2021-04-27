@@ -10,7 +10,7 @@ cModel Technology
 Z0 dC:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/simulation/modelsim
 XBRAM_ADDRS
 Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z2 !s110 1618868603
+Z2 !s110 1618869286
 !i10b 1
 !s100 o1SdOHaOTScJBfJ8=k^X70
 I=0<Ub^8YZg[m4mF]`OF;<0
@@ -25,7 +25,7 @@ Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z6 !s108 1618868603.000000
+Z6 !s108 1618869286.000000
 Z7 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/CONSTANTS.sv|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv|
 Z8 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neural_network.sv|
 !i113 1
@@ -73,7 +73,7 @@ R5
 r1
 !s85 0
 31
-R6
+!s108 1618869285.000000
 !s107 C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files/mult_accum.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files|C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files/mult_accum.v|
 !i113 1

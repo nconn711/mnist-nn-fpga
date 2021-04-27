@@ -23,7 +23,7 @@ module state_machine (
 		if (Reset) begin
 			curr_state <= IDLE;
 			Tick <= 9'b0;
-			R <= 1'b1;
+			R <= 1'b0;
 		end
 		else begin
 			curr_state <= next_state;
@@ -62,8 +62,8 @@ module state_machine (
 		endcase
 		
 		unique case (curr_state)
-			IDLE, DONE:	next_R = 1'b1;
-			START: next_R = 1'b0;
+			DONE:	next_R = 1'b1;
+			IDLE, START: next_R = 1'b0;
 			LOAD_1:	begin 
 						if (next_state == ACT_1)
 							next_tick = 9'b0;
