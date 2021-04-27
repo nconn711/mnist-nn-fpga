@@ -28,7 +28,7 @@ module neural_network (
 		
 		if (Reset)
 			Probability <= '{10{16'b0}};
-		else if (R)
+		else if (Ready)
 			Probability <= z_3_out[9:0];
 		else if (actFuncActive) begin
 			case (layer)
@@ -81,7 +81,7 @@ module neural_network (
 	state_machine s0	(
 								.Clk(Clk), .Reset(Reset), .Compute(Compute),
 								.Layer(layer), .Active(active),
-								.Tick(tick), .ActFuncActive(actFuncActive), .R(R)
+								.Tick(tick), .ActFuncActive(actFuncActive), .R(Ready)
 							);
 	
 	// first hidden layer

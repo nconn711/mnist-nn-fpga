@@ -9,6 +9,27 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element Avalon_MNIST_NN_Core_0
+   {
+      datum _sortIndex
+      {
+         value = "16";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
+   }
+   element Avalon_MNIST_NN_Core_0.NN_Slave_1
+   {
+      datum baseAddress
+      {
+         value = "64";
+         type = "String";
+      }
+   }
    element clk_0
    {
       datum _sortIndex
@@ -39,7 +60,7 @@
    {
       datum baseAddress
       {
-         value = "192";
+         value = "256";
          type = "String";
       }
    }
@@ -60,7 +81,7 @@
    {
       datum baseAddress
       {
-         value = "272";
+         value = "336";
          type = "String";
       }
    }
@@ -81,7 +102,7 @@
    {
       datum baseAddress
       {
-         value = "208";
+         value = "272";
          type = "String";
       }
    }
@@ -102,7 +123,7 @@
    {
       datum baseAddress
       {
-         value = "176";
+         value = "240";
          type = "String";
       }
    }
@@ -123,7 +144,15 @@
    {
       datum baseAddress
       {
-         value = "224";
+         value = "288";
+         type = "String";
+      }
+   }
+   element mnist_nn
+   {
+      datum _originalDeviceFamily
+      {
+         value = "MAX 10";
          type = "String";
       }
    }
@@ -136,7 +165,7 @@
       }
       datum sopceditor_expanded
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
    }
@@ -212,7 +241,7 @@
    {
       datum baseAddress
       {
-         value = "240";
+         value = "304";
          type = "String";
       }
    }
@@ -254,7 +283,7 @@
    {
       datum baseAddress
       {
-         value = "264";
+         value = "328";
          type = "String";
       }
    }
@@ -275,7 +304,7 @@
    {
       datum baseAddress
       {
-         value = "64";
+         value = "128";
          type = "String";
       }
    }
@@ -296,7 +325,7 @@
    {
       datum baseAddress
       {
-         value = "144";
+         value = "208";
          type = "String";
       }
    }
@@ -317,7 +346,7 @@
    {
       datum baseAddress
       {
-         value = "128";
+         value = "192";
          type = "String";
       }
    }
@@ -338,7 +367,7 @@
    {
       datum baseAddress
       {
-         value = "160";
+         value = "224";
          type = "String";
       }
    }
@@ -403,6 +432,11 @@
    internal="usb_rst.external_connection"
    type="conduit"
    dir="end" />
+ <module
+   name="Avalon_MNIST_NN_Core_0"
+   kind="Avalon_MNIST_NN_Core"
+   version="1.0"
+   enabled="1" />
  <module name="clk_0" kind="clock_source" version="18.1" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
@@ -512,7 +546,7 @@
   <parameter name="dataAddrWidth" value="28" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x10' type='altera_avalon_onchip_memory2.s1' /><slave name='spi_0.spi_control_port' start='0x20' end='0x40' type='altera_avalon_spi.spi_control_port' /><slave name='timer_0.s1' start='0x40' end='0x80' type='altera_avalon_timer.s1' /><slave name='usb_irq.s1' start='0x80' end='0x90' type='altera_avalon_pio.s1' /><slave name='usb_gpx.s1' start='0x90' end='0xA0' type='altera_avalon_pio.s1' /><slave name='usb_rst.s1' start='0xA0' end='0xB0' type='altera_avalon_pio.s1' /><slave name='keycode.s1' start='0xB0' end='0xC0' type='altera_avalon_pio.s1' /><slave name='hex_digits_pio.s1' start='0xC0' end='0xD0' type='altera_avalon_pio.s1' /><slave name='key.s1' start='0xD0' end='0xE0' type='altera_avalon_pio.s1' /><slave name='leds_pio.s1' start='0xE0' end='0xF0' type='altera_avalon_pio.s1' /><slave name='sdram_pll.pll_slave' start='0xF0' end='0x100' type='altpll.pll_slave' /><slave name='sysid_qsys_0.control_slave' start='0x108' end='0x110' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x110' end='0x118' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x1000' end='0x1800' type='altera_nios2_gen2.debug_mem_slave' /><slave name='sdram.s1' start='0x8000000' end='0xC000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x10' type='altera_avalon_onchip_memory2.s1' /><slave name='spi_0.spi_control_port' start='0x20' end='0x40' type='altera_avalon_spi.spi_control_port' /><slave name='Avalon_MNIST_NN_Core_0.NN_Slave_1' start='0x40' end='0x80' type='Avalon_MNIST_NN_Core.NN_Slave_1' /><slave name='timer_0.s1' start='0x80' end='0xC0' type='altera_avalon_timer.s1' /><slave name='usb_irq.s1' start='0xC0' end='0xD0' type='altera_avalon_pio.s1' /><slave name='usb_gpx.s1' start='0xD0' end='0xE0' type='altera_avalon_pio.s1' /><slave name='usb_rst.s1' start='0xE0' end='0xF0' type='altera_avalon_pio.s1' /><slave name='keycode.s1' start='0xF0' end='0x100' type='altera_avalon_pio.s1' /><slave name='hex_digits_pio.s1' start='0x100' end='0x110' type='altera_avalon_pio.s1' /><slave name='key.s1' start='0x110' end='0x120' type='altera_avalon_pio.s1' /><slave name='leds_pio.s1' start='0x120' end='0x130' type='altera_avalon_pio.s1' /><slave name='sdram_pll.pll_slave' start='0x130' end='0x140' type='altpll.pll_slave' /><slave name='sysid_qsys_0.control_slave' start='0x148' end='0x150' type='altera_avalon_sysid_qsys.control_slave' /><slave name='jtag_uart_0.avalon_jtag_slave' start='0x150' end='0x158' type='altera_avalon_jtag_uart.avalon_jtag_slave' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x1000' end='0x1800' type='altera_nios2_gen2.debug_mem_slave' /><slave name='sdram.s1' start='0x8000000' end='0xC000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -551,7 +585,7 @@
   <parameter name="icache_tagramBlockType" value="Automatic" />
   <parameter name="impl" value="Tiny" />
   <parameter name="instAddrWidth" value="28" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x10' type='altera_avalon_onchip_memory2.s1' /><slave name='sdram_pll.pll_slave' start='0xF0' end='0x100' type='altpll.pll_slave' /><slave name='sysid_qsys_0.control_slave' start='0x108' end='0x110' type='altera_avalon_sysid_qsys.control_slave' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x1000' end='0x1800' type='altera_nios2_gen2.debug_mem_slave' /><slave name='sdram.s1' start='0x8000000' end='0xC000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory2_0.s1' start='0x0' end='0x10' type='altera_avalon_onchip_memory2.s1' /><slave name='sdram_pll.pll_slave' start='0x130' end='0x140' type='altpll.pll_slave' /><slave name='sysid_qsys_0.control_slave' start='0x148' end='0x150' type='altera_avalon_sysid_qsys.control_slave' /><slave name='nios2_gen2_0.debug_mem_slave' start='0x1000' end='0x1800' type='altera_nios2_gen2.debug_mem_slave' /><slave name='sdram.s1' start='0x8000000' end='0xC000000' type='altera_avalon_new_sdram_controller.s1' /></address-map>]]></parameter>
   <parameter name="instructionMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="instructionMasterHighPerformanceMapParam" value="" />
   <parameter name="instruction_master_high_performance_paddr_base" value="0" />
@@ -979,9 +1013,18 @@
    kind="avalon"
    version="18.1"
    start="nios2_gen2_0.data_master"
+   end="Avalon_MNIST_NN_Core_0.NN_Slave_1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0040" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="nios2_gen2_0.data_master"
    end="jtag_uart_0.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0110" />
+  <parameter name="baseAddress" value="0x0150" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -990,7 +1033,7 @@
    start="nios2_gen2_0.data_master"
    end="sysid_qsys_0.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0108" />
+  <parameter name="baseAddress" value="0x0148" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1008,7 +1051,7 @@
    start="nios2_gen2_0.data_master"
    end="sdram_pll.pll_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00f0" />
+  <parameter name="baseAddress" value="0x0130" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1026,7 +1069,7 @@
    start="nios2_gen2_0.data_master"
    end="leds_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00e0" />
+  <parameter name="baseAddress" value="0x0120" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1044,7 +1087,7 @@
    start="nios2_gen2_0.data_master"
    end="key.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00d0" />
+  <parameter name="baseAddress" value="0x0110" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1053,7 +1096,7 @@
    start="nios2_gen2_0.data_master"
    end="hex_digits_pio.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00c0" />
+  <parameter name="baseAddress" value="0x0100" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1062,7 +1105,7 @@
    start="nios2_gen2_0.data_master"
    end="keycode.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00b0" />
+  <parameter name="baseAddress" value="0x00f0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1071,7 +1114,7 @@
    start="nios2_gen2_0.data_master"
    end="usb_rst.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00a0" />
+  <parameter name="baseAddress" value="0x00e0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1080,7 +1123,7 @@
    start="nios2_gen2_0.data_master"
    end="usb_gpx.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0090" />
+  <parameter name="baseAddress" value="0x00d0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1089,7 +1132,7 @@
    start="nios2_gen2_0.data_master"
    end="usb_irq.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0080" />
+  <parameter name="baseAddress" value="0x00c0" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1098,7 +1141,7 @@
    start="nios2_gen2_0.data_master"
    end="timer_0.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0040" />
+  <parameter name="baseAddress" value="0x0080" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1116,7 +1159,7 @@
    start="nios2_gen2_0.instruction_master"
    end="sysid_qsys_0.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0108" />
+  <parameter name="baseAddress" value="0x0148" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1134,7 +1177,7 @@
    start="nios2_gen2_0.instruction_master"
    end="sdram_pll.pll_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x00f0" />
+  <parameter name="baseAddress" value="0x0130" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1156,6 +1199,11 @@
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="18.1" start="sdram_pll.c0" end="sdram.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="clk_0.clk"
+   end="Avalon_MNIST_NN_Core_0.CLK" />
  <connection kind="clock" version="18.1" start="clk_0.clk" end="nios2_gen2_0.clk" />
  <connection kind="clock" version="18.1" start="clk_0.clk" end="leds_pio.clk" />
  <connection kind="clock" version="18.1" start="clk_0.clk" end="sysid_qsys_0.clk" />
@@ -1203,6 +1251,11 @@
    end="spi_0.irq">
   <parameter name="irqNumber" value="3" />
  </connection>
+ <connection
+   kind="reset"
+   version="18.1"
+   start="clk_0.clk_reset"
+   end="Avalon_MNIST_NN_Core_0.RESET" />
  <connection
    kind="reset"
    version="18.1"
@@ -1266,6 +1319,11 @@
    version="18.1"
    start="clk_0.clk_reset"
    end="onchip_memory2_0.reset1" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="nios2_gen2_0.debug_reset_request"
+   end="Avalon_MNIST_NN_Core_0.RESET" />
  <connection
    kind="reset"
    version="18.1"
