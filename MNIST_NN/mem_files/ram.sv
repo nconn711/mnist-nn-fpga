@@ -7,7 +7,7 @@ module ram #(parameter ADDR_WIDTH=10, DATA_WIDTH=16, ADDR_SIZE=1024, FILE_NAME="
      
    reg [DATA_WIDTH-1:0] mem [ADDR_SIZE-1:0];
    initial begin
-    $readmemh(FILE_NAME, reg);
+    $readmemh(FILE_NAME, mem);
    end
 
     always @(posedge clk) begin

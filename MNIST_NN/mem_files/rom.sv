@@ -5,10 +5,10 @@ module rom #(parameter ADDR_WIDTH=16, DATA_WIDTH=16, ADDR_SIZE=65536, FILE_NAME=
      input logic [ADDR_WIDTH-1:0] a,
      input logic clk);
 
+	reg [DATA_WIDTH-1:0] mem [ADDR_SIZE-1:0];
    initial begin
-    $readmemh(FILE_NAME, reg);
+    $readmemh(FILE_NAME, mem);
    end
-   reg [DATA_WIDTH-1:0] mem [ADDR_SIZE-1:0];
     always @(posedge clk) begin
         q <= mem[a];
    end
