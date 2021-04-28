@@ -7,63 +7,39 @@
 
 
 module mnist_nn (
-
-      ///////// Clocks /////////
-      input     MAX10_CLK1_50, 
-
-      ///////// KEY /////////
-      input    [ 1: 0]   KEY,
-
-      ///////// SW /////////
-      input    [ 9: 0]   SW,
-
-      ///////// LEDR /////////
-      output   [ 9: 0]   LEDR,
-
-      ///////// HEX /////////
-      output   [ 7: 0]   HEX0,
-      output   [ 7: 0]   HEX1,
-      output   [ 7: 0]   HEX2,
-      output   [ 7: 0]   HEX3,
-      output   [ 7: 0]   HEX4,
-      output   [ 7: 0]   HEX5,
-
-      ///////// SDRAM /////////
-      output             DRAM_CLK,
-      output             DRAM_CKE,
-      output   [12: 0]   DRAM_ADDR,
-      output   [ 1: 0]   DRAM_BA,
-      inout    [15: 0]   DRAM_DQ,
-      output             DRAM_LDQM,
-      output             DRAM_UDQM,
-      output             DRAM_CS_N,
-      output             DRAM_WE_N,
-      output             DRAM_CAS_N,
-      output             DRAM_RAS_N,
-
-      ///////// VGA /////////
-      output             VGA_HS,
-      output             VGA_VS,
-      output   [ 3: 0]   VGA_R,
-      output   [ 3: 0]   VGA_G,
-      output   [ 3: 0]   VGA_B,
-
-
-      ///////// ARDUINO /////////
-      inout    [15: 0]   ARDUINO_IO,
-      inout              ARDUINO_RESET_N 
-
+	///////// Clock /////////
+	input logic MAX10_CLK1_50,
+	///////// DE10 //////////
+	input logic  [ 1: 0] KEY,
+    input logic [ 9: 0] SW,
+ 	output logic [ 9: 0] LEDR,
+	output logic [ 7: 0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
+	///////// SDRAM /////////
+	output logic DRAM_CLK,
+	output logic DRAM_CKE,
+	output logic [12: 0] DRAM_ADDR,
+	output logic [ 1: 0] DRAM_BA,
+	inout logic [15: 0] DRAM_DQ,
+	output logic DRAM_LDQM,
+	output logic DRAM_UDQM,
+	output logic DRAM_CS_N,
+	output logic DRAM_WE_N,
+	output logic DRAM_CAS_N,
+	output logic DRAM_RAS_N,
+	///////// VGA /////////
+	output logic VGA_HS,
+	output logic VGA_VS,
+	output logic [ 3: 0] VGA_R,
+	output logic [ 3: 0] VGA_G,
+	output logic [ 3: 0] VGA_B,
+	///////// ARDUINO /////////
+	inout logic [15: 0] ARDUINO_IO,
+	inout logic ARDUINO_RESET_N 
 );
 
+	logic Reset_h, vssig, blank, sync, VGA_Clk;
 
-
-
-logic Reset_h, vssig, blank, sync, VGA_Clk;
-
-
-//=======================================================
-//  REG/WIRE declarations
-//=======================================================
+	//////// REG/WIRE declarations //////////
 	logic SPI0_CS_N, SPI0_SCLK, SPI0_MISO, SPI0_MOSI, USB_GPX, USB_IRQ, USB_RST;
 	logic [3:0] hex_num_4, hex_num_3, hex_num_1, hex_num_0; //4 bit input hex digits
 	logic [1:0] signs;
@@ -71,16 +47,14 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 	logic [9:0] drawxsig, drawysig, ballxsig, ballysig, ballsizesig;
 	logic [7:0] Red, Blue, Green;
 	logic [7:0] keycode;
+	logic [7:0] x_displ, y_displ, button;
 
-//=======================================================
-//  Structural coding
-//=======================================================
+	//////// Structural Code ///////////
 	assign ARDUINO_IO[10] = SPI0_CS_N;
 	assign ARDUINO_IO[13] = SPI0_SCLK;
 	assign ARDUINO_IO[11] = SPI0_MOSI;
 	assign ARDUINO_IO[12] = 1'bZ;
 	assign SPI0_MISO = ARDUINO_IO[12];
-	
 	assign ARDUINO_IO[9] = 1'bZ; 
 	assign USB_IRQ = ARDUINO_IO[9];
 		
@@ -154,7 +128,10 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 		//LEDs and HEX
 		.hex_digits_export({hex_num_4, hex_num_3, hex_num_1, hex_num_0}),
 		.leds_export({hundreds, signs, LEDR}),
-		.keycode_export(keycode)
+		.keycode_export(keycode),
+		.x_displ_export(x_displ),
+		.y_displ_export(y_displ),
+		.button(button)
 		
 	 );
 
@@ -164,19 +141,19 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
 	logic [9:0] BallX_Interconnect, BallY_Interconnect, BallS_Interconnect;
 	logic [9:0] DrawX_Interconnect, DrawY_Interconnect;
 	logic Clk_25_Interconnect;
-	
+
+	logic [15:0] canvas [27:0][27:0];
 
 	vga_controller vga_instance ( 
-        .Clk(MAX10_CLK1_50),    // 50 MHz clock
-        .Reset(Reset_h),    // reset signal
-        .hs(VGA_HS),    // Horizontal sync pulse.  Active low
-        .vs(VGA_VS),    // Vertical sync pulse.  Active low
-        .pixel_clk(Clk_25_Interconnect), // 25 MHz pixel clock output
-        .blank(),   // Blanking interval indicator.  Active low.
-        .sync(),    // Composite Sync signal.  Active low.  We don't use it in this lab,
-                    // but the video DAC on the DE2 board requires an input for it.
-        .DrawX(DrawX_Interconnect), // horizontal coordinate
-        .DrawY(DrawY_Interconnect)  // vertical coordinate
+        .Clk(MAX10_CLK1_50),
+        .Reset(Reset_h),
+        .hs(VGA_HS),
+        .vs(VGA_VS),
+        .pixel_clk(Clk_25_Interconnect),
+        .blank(),
+        .sync(),
+        .DrawX(DrawX_Interconnect),
+        .DrawY(DrawY_Interconnect)
     );
 								
 	ball ball_instance (	
@@ -194,10 +171,36 @@ logic Reset_h, vssig, blank, sync, VGA_Clk;
         .DrawX(DrawX_Interconnect),
         .DrawY(DrawY_Interconnect), 
         .Ball_size(BallS_Interconnect),
+		.canvas(canvas),
         .Red(Red),
         .Green(Green),
         .Blue(Blue)
     );
+
+	canvas_editor canvas_instance (
+		.frame_clk(VGA_VS),
+		.Reset(Reset_h),
+		.Run(), // if mouse button is clicked and there has been x/y displacement
+		.X_pos(x_pos),
+		.Y_pos(y_pos),
+		.canvas(canvas)
+	);
+
+	logic [15:0] probability [9:0];
+	logic [15:0] display;
+
+	assign display = probability[SW];
+
+	hex_driver hex_display [5:0] ( {8'b0, display}, {HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} );
+	assign LEDR = SW;
+
+	neural_network nn_instance (
+		.Clk(MAX10_CLK1_50),
+		.Reset(Reset_h),
+		.Compute(VGA_VS),
+		.Ready(),
+		.Probability(probability)
+	);
 
 
 endmodule

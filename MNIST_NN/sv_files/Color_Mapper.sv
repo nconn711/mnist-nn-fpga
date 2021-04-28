@@ -14,8 +14,8 @@
 
 
 module  color_mapper( 
-    input [9:0] BallX, BallY, DrawX, DrawY, Ball_size,
-    input [15:0]reg [27:0][27:0]
+    input logic [9:0] BallX, BallY, DrawX, DrawY, Ball_size,
+    input logic [15:0] canvas [27:0][27:0]
     output logic [7:0]  Red, Green, Blue 
 );
 
@@ -66,9 +66,9 @@ module  color_mapper(
             end       
         else if ((canvas_on == 1'b1)) 
             begin
-                Red = reg[X_Block][Y_Block][11:4];
-                Green = reg[X_Block][Y_Block][11:4];
-                Blue = reg[X_Block][Y_Block][11:4];
+                Red = canvas[X_Block][Y_Block][11:4];
+                Green = canvas[X_Block][Y_Block][11:4];
+                Blue = canvas[X_Block][Y_Block][11:4];
             end
         else
             begin 
@@ -79,44 +79,3 @@ module  color_mapper(
     end 
     
 endmodule
-
-module canvas(
-    input [9:0] X_Pos, Y_Pos,
-    input [15:0]reg [27:0][27:0],
-    input frame_clk, Reset, Run
-);
-    logic [27:0] RegX, RegY;
-    logic [4:0] X_Block, Y_Block;
-    assign X = (X_Pos - 200);
-    assign Y = (Y_pos - 44);
-
-    always_comb
-        begin
-            for (int x=0; x<28; x++) begin
-                for (int y=0; y<28; y++) begin
-                    if(X >= x*14 && X < (x+1)*14) 
-                        X_Block = x;
-                    else
-                        X_Block = 32;
-
-                    if(Y >= y*14 && Y < (y+1)*14)
-                        Y_Block = x;
-                    else
-                        Y_Block = 32;
-                end
-            end
-        end
-
-    always_ff @ (posedge frame_clk)
-        begin
-            if(Reset)
-                begin
-                    reg <='{28{28{16'b0}}};
-                end
-            else 
-                begin
-                    if (X_Block != 32 && Y_Block != 32) //or X_Block/Y_Block == 32
-                        reg[X_Block][Y_Block] <= reg[X_Block][Y_Block] + 2000;
-                end
-        end
-endmodule 
