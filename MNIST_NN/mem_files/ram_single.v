@@ -1,10 +1,15 @@
 //Code for inferred RAM 2^10 address space x 16 bits
-module ram #(parameter ADDR_WIDTH=10, DATA_WIDTH=16, ADDR_SIZE=1024, FILE_NAME=" ")
-    (q, d, a, we, clk)
+module ram (q, d, a, we, clk);
+    parameter ADDR_WIDTH=10, 
+              DATA_WIDTH=16, 
+              ADDR_SIZE=1024, 
+              FILE_NAME=" ";
+
     output [DATA_WIDTH-1:0] q;
-    input logic [DATA_WIDTH-1:0] d;
-    input logic [ADDR_WIDTH-1:0] a;
-    input logic we, clk);
+    input [DATA_WIDTH-1:0] d;
+    input [ADDR_WIDTH-1:0] a;
+    input we;
+    input clk;
      
    reg [DATA_WIDTH-1:0] mem [ADDR_SIZE-1:0];
    initial begin
@@ -16,4 +21,5 @@ module ram #(parameter ADDR_WIDTH=10, DATA_WIDTH=16, ADDR_SIZE=1024, FILE_NAME="
             mem[a] <= d;
         q <= mem[a];
    end
+
 endmodule
