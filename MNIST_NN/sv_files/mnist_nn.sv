@@ -143,6 +143,10 @@ module mnist_nn (
 	logic Clk_25_Interconnect;
 
 	logic [15:0] canvas [27:0][27:0];
+	logic [9:0] x_pos, y_pos;
+	logic canvas_run;
+
+	assign canvas_run = ((X_displ != 0 || Y_displ != 0) && button) ? 1'b1 : 1'b0;
 
 	vga_controller vga_instance ( 
         .Clk(MAX10_CLK1_50),
@@ -155,6 +159,15 @@ module mnist_nn (
         .DrawX(DrawX_Interconnect),
         .DrawY(DrawY_Interconnect)
     );
+
+	pointer pointer_instance (
+		.frame_clk(VGA_VS),
+		.Reset(Reset_h),
+		.X_displ(x_displ),
+		.Y_displ(y_displ),
+		.X_pos(x_pos),
+		.Y_pos(y_pos)
+	);
 								
 	ball ball_instance (	
         .Reset(Reset_h),
@@ -180,7 +193,7 @@ module mnist_nn (
 	canvas_editor canvas_instance (
 		.frame_clk(VGA_VS),
 		.Reset(Reset_h),
-		.Run(), // if mouse button is clicked and there has been x/y displacement
+		.Run(canvas_run),
 		.X_pos(x_pos),
 		.Y_pos(y_pos),
 		.canvas(canvas)
