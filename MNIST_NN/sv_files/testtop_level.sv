@@ -104,6 +104,7 @@ module testtop_level (
 		.Clk(MAX10_CLK1_50),
 		.Reset(Reset_h),
 		.Compute(VGA_VS),
+		.canvas(canvas),
 		.Ready(),
 		.Probability(probability)
 	);

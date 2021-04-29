@@ -4,6 +4,7 @@ import BRAM_ADDRS::*;
 module neural_network (
 	input logic Clk, Reset,
 	input logic Compute,
+	input logic [15:0] canvas [27:0][27:0],
 	output logic Ready,
 	output logic [15:0] Probability [9:0]
 );
@@ -58,7 +59,7 @@ module neural_network (
 		case (layer)
 			3'b001: 	begin
 							address_r0 = WEIGHT_1 + tick;
-							address_r1 = INPUT + tick;
+							address_r1 = (tick < 784) ? tick : 0;
 							address_r2 = (tick < 20) ? SIGMOID + z_1_out[tick] : 16'b0;
 							x = (tick-2 < 784) ? q : 1<<11; // based off resolution
 						end
@@ -103,13 +104,15 @@ module neural_network (
 										.Address('{20{address_r0}}),
 										.Q(w)
 									);
-								
-	ram_input_output r1	(
-									.Clk(Clk),
-									.Reset(Reset),
-									.Address(address_r1),
-									.Q(q)
-								);
+
+	assign q = canvas[address_r1 % 28][address_r1 / 28];
+
+	// ram_input_output r1	(
+	// 								.Clk(Clk),
+	// 								.Reset(Reset),
+	// 								.Address(address_r1),
+	// 								.Q(q)
+	// 							);
 					
 	rom r2	(
 					.address(address_r2),
