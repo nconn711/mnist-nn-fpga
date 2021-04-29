@@ -5,8 +5,8 @@ module canvas_editor(
 );
     logic [4:0] X_Block, Y_Block;
 	 logic [9:0] X, Y;
-    assign X = (X_Pos > 200) ? (X_Pos - 200) : 0;
-    assign Y = (Y_Pos > 44) ? (Y_Pos - 44) : 0;
+    assign X = (X_Pos >= (200-1) ? (X_Pos - (200-1)) : 10'hfff;
+    assign Y = (Y_Pos >= (44-1)) ? (Y_Pos - (44-1)) : 10'hfff;
 
     always_comb begin
 			X_Block = 31;
