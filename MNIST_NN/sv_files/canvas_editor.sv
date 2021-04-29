@@ -28,7 +28,7 @@ module canvas_editor(
 			end
 			else if (Run) begin
 				if (X_Block != 31 && Y_Block != 31) begin
-					canvas[X_Block][Y_Block] <= (canvas[X_Block][Y_Block] < 1548) ? canvas[X_Block][Y_Block] + 500 : 2048;
+					canvas[X_Block][Y_Block] <= (canvas[X_Block][Y_Block] < 1548) ? canvas[X_Block][Y_Block] + 500 : 2047;
 				end
 			end
     end

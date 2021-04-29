@@ -15,7 +15,7 @@ module pointer (
     parameter [9:0] Y_Max=479;     // Bottommost point on the Y axis
     parameter [9:0] X_Step=1;      // Step size on the X axis
     parameter [9:0] Y_Step=1;      // Step size on the Y axis
-	 parameter [7:0] Sensitivity=8'hfe; // mask lower bits of displacement values
+	 parameter [7:0] Sensitivity=8'hfc; // mask lower bits of displacement values
 
     assign X_pos = x_pos;
     assign Y_pos = y_pos;
@@ -32,13 +32,13 @@ module pointer (
 				// y position calculation
 				
 				if (Y_displ[7]) begin
-					if ((y_pos - Size - (((Y_displ ^ 8'hff) + 1) & Sensitivity)) <= Y_Min)
+					if ((y_pos <= Y_Min + Size + (((Y_displ ^ 8'hff) + 1) & Sensitivity)))
 						y_pos <= Y_Min + 1 + Size;
 					else
 						y_pos <= y_pos - (((Y_displ ^ 8'hff) + 1) & Sensitivity);
 				end
 				else begin
-					if ((y_pos + Size + (Y_displ & Sensitivity)) >= Y_Max)
+					if ((y_pos >= Y_Max - Size - (Y_displ & Sensitivity)))
 						y_pos <= Y_Max - 1 - Size;
 					else
 						y_pos <= y_pos + (Y_displ & Sensitivity);
@@ -48,13 +48,13 @@ module pointer (
 				// x position calculation
 				
 				if (X_displ[7]) begin
-					if ((x_pos - Size - (((X_displ ^ 8'hff) + 1) & Sensitivity)) <= X_Min)
+					if ((x_pos <= X_Min + Size + (((X_displ ^ 8'hff) + 1) & Sensitivity)))
 						x_pos <= X_Min + 1 + Size;
 					else
 						x_pos <= x_pos - (((X_displ ^ 8'hff) + 1) & Sensitivity);
 				end
 				else begin
-					if ((x_pos + Size + (X_displ & Sensitivity)) >= X_Max)
+					if ((x_pos >= X_Max - Size - (X_displ & Sensitivity)))
 						x_pos <= X_Max - 1 - Size;
 					else
 						x_pos <= x_pos + (X_displ & Sensitivity);

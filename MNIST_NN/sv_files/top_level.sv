@@ -72,9 +72,9 @@ module top_level (
 	assign {Reset_h}=~ (KEY[0]);
 
 	//Our A/D converter is only 12 bit
-	assign VGA_R = Red[7:4];
-	assign VGA_B = Blue[7:4];
-	assign VGA_G = Green[7:4];
+	assign VGA_R = ~blank ? 4'b0 : Red[7:4];
+	assign VGA_B = ~blank ? 4'b0 : Blue[7:4];
+	assign VGA_G = ~blank ? 4'b0 : Green[7:4];
 	
 	
 	mnist_nn u0 (
@@ -134,8 +134,8 @@ module top_level (
         .hs(VGA_HS),
         .vs(VGA_VS),
         .pixel_clk(Clk_25_Interconnect),
-        .blank(),
-        .sync(),
+        .blank(blank),
+        .sync(sync),
         .DrawX(DrawX_Interconnect),
         .DrawY(DrawY_Interconnect)
     );

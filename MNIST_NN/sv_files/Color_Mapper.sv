@@ -23,8 +23,8 @@ module  color_mapper(
     logic canvas_on;
     logic [4:0] X_Block, Y_Block;
 	 logic [9:0] X, Y;
-    assign X = (DrawX > 200) ? (DrawX - 200) : 0;
-    assign Y = (DrawY > 44) ? (DrawY - 44) : 0;
+    assign X = (DrawX >= 200) ? (DrawX - 200) : 10'hfff;
+    assign Y = (DrawY >= 44) ? (DrawY - 44) : 10'hfff;
 
     int DistX, DistY, Size;
 	assign DistX = DrawX - BallX;
@@ -51,7 +51,7 @@ module  color_mapper(
         end
 
         //Canvas_on_proc
-        if (X_Block != 31 && Y_Block != 31) 
+        if (X >= 0 && X < 392 && Y >= 0 && Y < 392) 
             canvas_on = 1'b1;
         else 
             canvas_on = 1'b0;
@@ -63,7 +63,7 @@ module  color_mapper(
                 Green = 8'h00;
                 Blue = 8'h00;
             end       
-        else if (canvas_on) 
+        else if (canvas_on)
             begin
                 Red = canvas[X_Block][Y_Block][10:3];
                 Green = canvas[X_Block][Y_Block][10:3];
@@ -71,9 +71,9 @@ module  color_mapper(
             end
         else
             begin 
-                Red = 8'hff; 
-                Green = 8'hfa;
-                Blue = 8'hfa;
+                Red = 8'h88; 
+                Green = 8'h88;
+                Blue = 8'h88;
             end      
     end 
     
