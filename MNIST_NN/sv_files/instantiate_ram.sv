@@ -53,24 +53,6 @@
 				
  endmodule
 
- module sdram_sigmoid (
- 	input logic Clk, Reset,
- 	input logic [15:0] Address,
- 	output logic [15:0] Q
- );
-
-
- 	sdram r (
- 				.address(Address),
- 				.clock(Clk),
- 				.data(16'b0),
- 				.wren(1'b0),
- 				.q(Q) );
- 	defparam
- 		r.altsyncram_component.init_file = "HEX/ram_sigmoid.hex";
-				
- endmodule
-
 //module ram_weights_biases (
 //	input logic Clk, Reset,
 //	input logic [9:0] Address [19:0],
@@ -78,7 +60,7 @@
 //);
 //
 //
-//	ram r [19:0] (
+//	ram_inferred r [19:0] (
 //						.a(Address),
 //						.clk(Clk),
 //						.d({20{16'b0}}),
@@ -107,7 +89,7 @@
 //		r[19].FILE_NAME = "HEX/ram_19.hex";
 //
 //endmodule
-
+//
 //module ram_input_output (
 //	input logic Clk, Reset,
 //	input logic [9:0] Address,
@@ -115,7 +97,7 @@
 //);
 //
 //
-//	ram r (
+//	ram_inferred r (
 //				.a(Address),
 //				.clk(Clk),
 //				.d(16'b0),
@@ -123,23 +105,5 @@
 //				.q(Q) );
 //	defparam
 //		r.FILE_NAME = "HEX/ram_IO.hex";
-//				
-//endmodule
-
-//module sdram_sigmoid (
-//	input logic Clk, Reset,
-//	input logic [15:0] Address,
-//	output logic [15:0] Q
-//);
-//
-//
-//	sdram r (
-//				.a(Address),
-//				.clk(Clk),
-//				.d(16'b0),
-//				.we(1'b0),
-//				.q(Q) );
-//	defparam
-//		r.FILE_NAME = "HEX/ram_sigmoid.hex";
 //				
 //endmodule

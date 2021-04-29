@@ -29,7 +29,7 @@ module neural_network (
 		if (Reset)
 			Probability <= '{10{16'b0}};
 		else if (Ready)
-			Probability <= z_3_out[9:0];
+			Probability <= z_3_sig;
 		else if (actFuncActive) begin
 			case (layer)
 				3'b001:		begin

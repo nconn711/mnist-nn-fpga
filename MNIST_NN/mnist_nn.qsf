@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
-set_global_assignment -name TOP_LEVEL_ENTITY neural_network
+set_global_assignment -name TOP_LEVEL_ENTITY top_level
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "22:47:48  MARCH 22, 2021"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Lite Edition"
@@ -249,30 +249,37 @@ set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
 set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
-set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS NOT_USED -section_id eda_simulation
 set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH testbench -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_NAME testbench -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id testbench
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "0 ns" -section_id testbench
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME testbench -section_id testbench
 set_global_assignment -name EDA_NATIVELINK_SIMULATION_SETUP_SCRIPT simulation/modelsim/wave_0.do -section_id eda_simulation
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/VGA_controller.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/top_level.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/testtop_level.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/ball.sv
+set_global_assignment -name QIP_FILE mnist_nn/synthesis/mnist_nn.qip
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/pointer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/canvas_editor.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/color_mapper.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/neural_network.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/neurons.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/state_machine.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/instantiate_ram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/reg_file.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/avalon_mnist_nn_interface.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/CONSTANTS.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/testbench.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/hex_driver.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sv_files/synchronizers.sv
+set_global_assignment -name QIP_FILE mem_files/rom.qip
+set_global_assignment -name QIP_FILE mem_files/ram.qip
+set_global_assignment -name QIP_FILE IP_files/mult_accum.qip
+set_global_assignment -name SDC_FILE mnist_nn.sdc
 set_global_assignment -name EDA_TEST_BENCH_FILE sv_files/testbench.sv -section_id testbench
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name QIP_FILE mem_files/rom.qip
-set_global_assignment -name QIP_FILE mem_files/ram.qip
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/reg_file.sv
-set_global_assignment -name QIP_FILE IP_files/mult_accum.qip
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/top_level.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/neural_network.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/neurons.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/state_machine.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/CONSTANTS.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/instantiate_ram.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/testbench.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/hex_driver.sv
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/synchronizers.sv
-set_global_assignment -name SDC_FILE mnist_nn.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE sv_files/avalon_mnist_nn_interface.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

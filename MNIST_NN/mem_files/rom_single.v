@@ -1,5 +1,5 @@
 //Code for inferred ROM 2^16 address space x 16 bits
-module rom (q, d, a, we, clk);
+module rom_inferred (q, d, a, clk);
     parameter ADDR_WIDTH=16, 
               DATA_WIDTH=16, 
               ADDR_SIZE=65536, 

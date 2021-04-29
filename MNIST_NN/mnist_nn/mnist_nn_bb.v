@@ -1,5 +1,6 @@
 
 module mnist_nn (
+	button_export,
 	clk_clk,
 	hex_digits_export,
 	key_external_connection_export,
@@ -22,8 +23,11 @@ module mnist_nn (
 	spi0_SS_n,
 	usb_gpx_export,
 	usb_irq_export,
-	usb_rst_export);	
+	usb_rst_export,
+	x_displ_export,
+	y_displ_export);	
 
+	output	[7:0]	button_export;
 	input		clk_clk;
 	output	[15:0]	hex_digits_export;
 	input	[1:0]	key_external_connection_export;
@@ -47,4 +51,6 @@ module mnist_nn (
 	input		usb_gpx_export;
 	input		usb_irq_export;
 	output		usb_rst_export;
+	output	[7:0]	x_displ_export;
+	output	[7:0]	y_displ_export;
 endmodule

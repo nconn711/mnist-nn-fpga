@@ -7,6 +7,7 @@
    <irq preferredWidth="34" />
   </columns>
  </systemtable>
- <library expandedCategories="Project,Project/ECE 385 Custom IPs,Library" />
+ <library expandedCategories="Project,Library" />
  <window width="1942" height="1042" x="-11" y="-11" />
+ <generation path="_PROJECT_NAME_" />
 </preferences>

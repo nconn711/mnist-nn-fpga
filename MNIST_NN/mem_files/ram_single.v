@@ -1,5 +1,5 @@
 //Code for inferred RAM 2^10 address space x 16 bits
-module ram (q, d, a, we, clk);
+module ram_inferred (q, d, a, we, clk);
     parameter ADDR_WIDTH=10, 
               DATA_WIDTH=16, 
               ADDR_SIZE=1024, 

@@ -5,9 +5,9 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vlog -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/neuron_IP_files/mult_accum.v}
-vlog -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/ram.v}
-vlog -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/ram_files/rom.v}
+vlog -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/mem_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/mem_files/rom.v}
+vlog -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/mem_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/mem_files/ram.v}
+vlog -vlog01compat -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/IP_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/IP_files/mult_accum.v}
 vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/neurons.sv}
 vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/state_machine.sv}
 vlog -sv -work work +incdir+C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files {C:/Users/STP/Desktop/mnist-nn-fpga/MNIST_NN/sv_files/CONSTANTS.sv}

@@ -1,4 +1,5 @@
 	mnist_nn u0 (
+		.button_export                  (<connected-to-button_export>),                  //                  button.export
 		.clk_clk                        (<connected-to-clk_clk>),                        //                     clk.clk
 		.hex_digits_export              (<connected-to-hex_digits_export>),              //              hex_digits.export
 		.key_external_connection_export (<connected-to-key_external_connection_export>), // key_external_connection.export
@@ -21,6 +22,8 @@
 		.spi0_SS_n                      (<connected-to-spi0_SS_n>),                      //                        .SS_n
 		.usb_gpx_export                 (<connected-to-usb_gpx_export>),                 //                 usb_gpx.export
 		.usb_irq_export                 (<connected-to-usb_irq_export>),                 //                 usb_irq.export
-		.usb_rst_export                 (<connected-to-usb_rst_export>)                  //                 usb_rst.export
+		.usb_rst_export                 (<connected-to-usb_rst_export>),                 //                 usb_rst.export
+		.x_displ_export                 (<connected-to-x_displ_export>),                 //                 x_displ.export
+		.y_displ_export                 (<connected-to-y_displ_export>)                  //                 y_displ.export
 	);
 
