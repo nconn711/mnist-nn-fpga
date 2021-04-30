@@ -80,9 +80,9 @@ module  color_mapper(
             end
         else
             begin 
-                Red = 8'h88; 
-                Green = 8'h88;
-                Blue = 8'h88;
+                Red = 8'h00; 
+                Green = 8'h00;
+                Blue = 8'h00;
             end      
     end 
     
