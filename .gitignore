@@ -31,6 +31,13 @@
 # ignore Quartus II generated files
 *_generation_script*
 *_inst.vhd
+*.log
+*.xmi
+*.xml
+*.version
+*.tree
+*.snap
+*.metadata*
 *.bak*
 *.cmp
 *.done

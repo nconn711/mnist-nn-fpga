@@ -37,7 +37,7 @@ module top_level (
 	inout logic ARDUINO_RESET_N 
 );
 
-	logic Reset_h, vssig, blank, sync, VGA_Clk;
+	logic Reset_h, Compute_h, vssig, blank, sync, VGA_Clk;
 
 	//////// REG/WIRE declarations //////////
 	logic SPI0_CS_N, SPI0_SCLK, SPI0_MISO, SPI0_MOSI, USB_GPX, USB_IRQ, USB_RST;
@@ -69,7 +69,8 @@ module top_level (
 	
 	
 	//Assign one button to reset
-	assign {Reset_h}=~ (KEY[0]);
+	assign {Reset_h} = ~(KEY[0]);
+	assign {Compute_h} = ~(KEY[1]);
 
 	//Our A/D converter is only 12 bit
 	assign VGA_R = ~blank ? 4'b0 : Red[7:4];
@@ -183,15 +184,16 @@ module top_level (
 	logic [15:0] probability [9:0];
 	logic [23:0] display;
 
-	//assign display = probability[SW];
-	assign display = {2'b0, x_pos, 2'b0, y_pos};
+	assign display = probability[SW];
+	//assign display = {2'b0, x_pos, 2'b0, y_pos};
 
 	hex_driver hex_display [5:0] ( display, {HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} );
 
 	neural_network nn_instance (
 		.Clk(MAX10_CLK1_50),
 		.Reset(Reset_h),
-		.Compute(VGA_VS),
+		.Compute(Compute_h),
+		.canvas(canvas),
 		.Ready(),
 		.Probability(probability)
 	);

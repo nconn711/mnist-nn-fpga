@@ -9,6 +9,16 @@ module neural_network (
 	output logic [15:0] Probability [9:0]
 );
 
+	logic [15:0] flat_canvas [783:0];
+	
+	always_comb begin
+		for (int x = 0; x < 28; x = x + 1) begin
+			for (int y = 0; y < 28; y = y + 1) begin
+				flat_canvas[y*28 + x] = canvas[x][y];
+			end
+		end
+	end
+
 	logic [9:0] address_r0, address_r1;
 	logic [15:0] address_r2;
 	logic [15:0] q, sigmoid;
@@ -59,7 +69,7 @@ module neural_network (
 		case (layer)
 			3'b001: 	begin
 							address_r0 = WEIGHT_1 + tick;
-							address_r1 = (tick < 784) ? tick : 0;
+							address_r1 = (tick > 1) ? tick - 2 : 0;
 							address_r2 = (tick < 20) ? SIGMOID + z_1_out[tick] : 16'b0;
 							x = (tick-2 < 784) ? q : 1<<11; // based off resolution
 						end
@@ -105,7 +115,7 @@ module neural_network (
 										.Q(w)
 									);
 
-	assign q = canvas[address_r1 % 28][address_r1 / 28];
+	assign q = flat_canvas[address_r1];
 
 	// ram_input_output r1	(
 	// 								.Clk(Clk),
