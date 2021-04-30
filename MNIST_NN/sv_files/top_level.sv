@@ -182,17 +182,31 @@ module top_level (
 	);
 
 	logic [15:0] probability [9:0];
+	logic [3:0] argmax;
 	logic [23:0] display;
 
-	assign display = probability[SW];
+	always_comb begin : argmax
+		argmax = 0;
+		for (int i = 0; i < 9; i = i + 1) begin
+			if (probability[i + 1] > probability[i])
+				argmax = i + 1;
+		end
+		display = {argmax, 4'b0, probability[15:0]}
+	end
+
+	//assign display = {8'b0, probability[SW]};
 	//assign display = {2'b0, x_pos, 2'b0, y_pos};
 
-	hex_driver hex_display [5:0] ( display, {HEX5, HEX4, HEX3, HEX2, HEX1, HEX0} );
+	hex_driver hex_display [5:0] ( 
+		.In0(display), 
+		.dash(6'b010000),
+		.Out0({HEX5, HEX4, HEX3, HEX2, HEX1, HEX0})
+	);
 
 	neural_network nn_instance (
 		.Clk(MAX10_CLK1_50),
 		.Reset(Reset_h),
-		.Compute(Compute_h),
+		.Compute(VGA_VS),
 		.canvas(canvas),
 		.Ready(),
 		.Probability(probability)
