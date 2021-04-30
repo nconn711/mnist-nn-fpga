@@ -6,8 +6,7 @@ module hex_driver (
 	
 	always_comb
 	begin
-		Out0[7] = 1'b1;
-		if (dash) begin
+		if (~dash) begin
 			unique case (In0)
 				4'b0000   : Out0 = 7'b1000000; // '0'
 				4'b0001   : Out0 = 7'b1111001; // '1'
@@ -30,6 +29,8 @@ module hex_driver (
 		end
 		else
 			Out0 = 7'b0111111;
+			
+		Out0[7] = 1'b1;
 	end
 
 endmodule

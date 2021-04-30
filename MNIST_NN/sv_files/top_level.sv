@@ -185,13 +185,16 @@ module top_level (
 	logic [3:0] argmax;
 	logic [23:0] display;
 
-	always_comb begin : argmax
+	always_comb begin
 		argmax = 0;
-		for (int i = 0; i < 9; i = i + 1) begin
-			if (probability[i + 1] > probability[i])
-				argmax = i + 1;
+		for (int i = 1; i < 10; i = i + 1) begin
+			if (probability[i] > probability[argmax])
+				argmax = i;
 		end
-		display = {argmax, 4'b0, probability[15:0]}
+		if (SW[9])
+			display = {argmax, 4'b0, probability[argmax]};
+		else
+			display = {argmax, 4'b0, probability[SW]};
 	end
 
 	//assign display = {8'b0, probability[SW]};
@@ -199,7 +202,7 @@ module top_level (
 
 	hex_driver hex_display [5:0] ( 
 		.In0(display), 
-		.dash(6'b010000),
+		.dash(6'b000000),
 		.Out0({HEX5, HEX4, HEX3, HEX2, HEX1, HEX0})
 	);
 
