@@ -53,6 +53,25 @@
 				
  endmodule
 
+  module ram_nums (
+ 	input logic Clk, Reset,
+ 	input logic [9:0] Address,
+ 	output logic [15:0] Q
+ );
+
+
+ 	ram r (
+ 				.address(Address),
+ 				.clock(Clk),
+ 				.data(16'b0),
+ 				.wren(1'b0),
+ 				.q(Q) );
+ 	defparam
+ 		r.altsyncram_component.init_file = "HEX/ram_nums.hex";
+				
+ endmodule
+
+
 //module ram_weights_biases (
 //	input logic Clk, Reset,
 //	input logic [9:0] Address [19:0],

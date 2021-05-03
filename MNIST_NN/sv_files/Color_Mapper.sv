@@ -12,19 +12,27 @@
 //    University of Illinois ECE Department                              --
 //-------------------------------------------------------------------------
 
-
 module  color_mapper( 
+    input logic Clk
     input logic [9:0] BallX, BallY, DrawX, DrawY, Ball_size,
     input logic [15:0] canvas [27:0][27:0],
     output logic [7:0]  Red, Green, Blue 
 );
 
+    logic num_on;
     logic ball_on;
     logic canvas_on;
     logic [4:0] X_Block, Y_Block;
-	 logic [9:0] X, Y;
+	logic [9:0] X, Y;
+    logic [15:0] Addr;
+    logic [9:0] numrow;
+    logic [3:0] numcol;
+    logic [7:0] line;
+
     assign X = (DrawX >= 200-1) ? (DrawX - (200-1)) : 10'hfff;
     assign Y = (DrawY >= (44-1)) ? (DrawY - (44-1)) : 10'hfff;
+    assign line = (DrawY >= (165-1) && DrawY <= (315-1)) ? (DrawY - 164) : 8'hff; 
+    assign numcol = (DrawX >= 55 && DrawX <= 65) ? (DrawX - 55) : 4'hf;
 
     int DistX, DistY, Size;
 	assign DistX = DrawX - BallX;
@@ -50,6 +58,36 @@ module  color_mapper(
             end
         end
 
+        //set_addr
+        if (line/15 == 8'h00)
+            Addr = NUM_0 + line%15;
+        else if (line/15 == 8'h01)
+            Addr = NUM_1 + line%15;
+        else if (line/15 == 8'h02)
+            Addr = NUM_2 + line%15;
+        else if (line/15 == 8'h03)
+            Addr = NUM_3 + line%15;
+        else if (line/15 == 8'h04)
+            Addr = NUM_4 + line%15;
+        else if (line/15 == 8'h05)
+            Addr = NUM_5 + line%15;
+        else if (line/15 == 8'h06)
+            Addr = NUM_6 + line%15;
+        else if (line/15 == 8'h07)
+            Addr = NUM_7 + line%15;
+        else if (line/15 == 8'h08)
+            Addr = NUM_8 + line%15;
+        else if (line/15 == 8'h09)
+            Addr = NUM_9 + line%15;
+        else 
+            Addr = NUM_0;
+
+        //num_on_proc
+        if (DrawY >= 164 && DrawY <= 314 && DrawX >= 55 && DrawX <= 65 && numrow[numcol])
+            num_on = 1'b1;
+        else 
+            num_on = 1'b0;
+
         //Canvas_on_proc
         if (X >= 0 && X < 392 && Y >= 0 && Y < 392) 
             canvas_on = 1'b1;
@@ -63,16 +101,22 @@ module  color_mapper(
                 Green = 8'h00;
                 Blue = 8'h00;
             end       
+        else if (num_on)
+            begin
+                Red = 8'h88; 
+                Green = 8'h88;
+                Blue = 8'h88;
+            end
         else if (canvas_on)
             begin
                 Red = canvas[X_Block][Y_Block][10:3];
                 Green = canvas[X_Block][Y_Block][10:3];
                 Blue = canvas[X_Block][Y_Block][10:3];
             end
-        else if ((DrawX >= 197 && DrawX <= 198 && DrawY > 42 && DrawY < 436) || 
-                (DrawY >= 41 && DrawY <= 42 && DrawX > 198 && DrawX < 592) || 
-                (DrawX >= 592 && DrawX <= 593 && DrawY > 42 && DrawY < 436) || 
-                (DrawY >= 436 && DrawY <= 437 && DrawX > 198 && DrawX < 592))
+        else if ((DrawX >= 197 && DrawX <= 198 && DrawY > 42 && DrawY < 436) || //left
+                (DrawY >= 41 && DrawY <= 42 && DrawX > 198 && DrawX < 592) || //top
+                (DrawX >= 591 && DrawX <= 592 && DrawY > 42 && DrawY < 436) || //right
+                (DrawY >= 435 && DrawY <= 436 && DrawX > 198 && DrawX < 592)) //bottom
             begin
                 Red = 8'h88; 
                 Green = 8'h88;
@@ -85,5 +129,12 @@ module  color_mapper(
                 Blue = 8'h00;
             end      
     end 
+
+    ram_nums rn	(
+									.Clk(Clk),
+									.Reset(Reset),
+									.Address(Addr),
+									.Q(numrow)
+								);
     
 endmodule
