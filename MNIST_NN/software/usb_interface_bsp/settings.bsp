@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Apr 30, 2021 9:41:31 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1619793691115</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>May 4, 2021 4:51:43 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1620165103329</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\STP\Desktop\mnist-nn-fpga\MNIST_NN\software\usb_interface_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\mnist_nn.sopcinfo</SopcDesignFile>

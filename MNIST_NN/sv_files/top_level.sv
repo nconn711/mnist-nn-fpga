@@ -161,7 +161,7 @@ module top_level (
 //    );
 								
 	color_mapper color_instance ( 
-		.Clk(Clk_25_Interconnect)
+		.Clk(Clk_25_Interconnect),
         .BallX(x_pos),
         .BallY(y_pos),
         .DrawX(DrawX_Interconnect),

@@ -6,14 +6,14 @@
 //-------------------------------------------------------------------------
 
 
-module top_level (
+module testtop_level (
 	///////// Clock /////////
 	input logic MAX10_CLK1_50,
 	///////// DE10 //////////
-	input logic  [1: 0] KEY,
-    input logic [9: 0] SW,
- 	output logic [9: 0] LEDR,
-	output logic [7: 0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
+	input logic  [ 1: 0] KEY,
+    input logic [ 9: 0] SW,
+ 	output logic [ 9: 0] LEDR,
+	output logic [ 7: 0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5,
 	///////// SDRAM /////////
 	output logic DRAM_CLK,
 	output logic DRAM_CKE,
@@ -78,8 +78,16 @@ module top_level (
 	assign VGA_G = ~blank ? 4'b0 : Green[7:4];
 
     //instantiate a vga_controller, ball, and color_mapper here with the ports.
+
+	logic [9:0] BallX_Interconnect, BallY_Interconnect, BallS_Interconnect;
 	logic [9:0] DrawX_Interconnect, DrawY_Interconnect;
 	logic Clk_25_Interconnect;
+
+	logic [15:0] canvas [27:0][27:0];
+	logic [9:0] x_pos, y_pos;
+	logic canvas_run;
+
+	assign canvas_run = ((x_displ != 0 || y_displ != 0) && (button & 8'b1)) ? 1'b1 : 1'b0;
 
 	vga_controller vga_instance ( 
         .Clk(MAX10_CLK1_50),
@@ -92,9 +100,20 @@ module top_level (
         .DrawX(DrawX_Interconnect),
         .DrawY(DrawY_Interconnect)
     );
+
+	pointer pointer_instance (
+		.frame_clk(VGA_VS),
+		.Reset(Reset_h),
+		.X_displ(x_displ),
+		.Y_displ(y_displ),
+		.X_pos(x_pos),
+		.Y_pos(y_pos),
+		.Size(BallS_Interconnect)
+	);
+								
 								
 	color_mapper color_instance ( 
-		.Clk(Clk_25_Interconnect)
+		.Clk(Clk_25_Interconnect),
         .BallX(x_pos),
         .BallY(y_pos),
         .DrawX(DrawX_Interconnect),
@@ -105,5 +124,24 @@ module top_level (
         .Green(Green),
         .Blue(Blue)
     );
+
+	canvas_editor canvas_instance (
+		.frame_clk(VGA_VS),
+		.Reset(Reset_h),
+		.Run(canvas_run),
+		.X_Pos(x_pos),
+		.Y_Pos(y_pos),
+		.canvas(canvas)
+	);
+
+	logic [15:0] probability [9:0];
+	logic [3:0] argmax;
+	logic [23:0] display;
+
+	hex_driver hex_display [5:0] ( 
+		.In0(display), 
+		.dash(6'b000000),
+		.Out0({HEX5, HEX4, HEX3, HEX2, HEX1, HEX0})
+	);
 
 endmodule

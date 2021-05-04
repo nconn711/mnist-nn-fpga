@@ -1,3 +1,4 @@
+/*
 module testbench;
 
 timeunit 10ns;
@@ -43,3 +44,4 @@ KEY = 2'b11;
 end: TEST
 
 endmodule
+*/

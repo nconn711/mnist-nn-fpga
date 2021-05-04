@@ -20,9 +20,9 @@ package BRAM_ADDRS;
 	parameter NUM_7 = 10'h69;
 	parameter NUM_8 = 10'h78;
 	parameter NUM_9 = 10'h87;
-	parameter NUM_. = 10'h96;
-	parameter NUM_: = 10'hA5;
-	parameter NUM_% = 10'hB4;
+	parameter NUM_dp = 10'h96;
+	parameter NUM_colon = 10'hA5;
+	parameter NUM_percent = 10'hB4;
 	
 	// biases are stored immediately after weights
    	parameter BIAS_1 = 10'h310; // layer 1 bias

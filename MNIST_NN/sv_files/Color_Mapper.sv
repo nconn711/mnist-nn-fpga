@@ -13,7 +13,7 @@
 //-------------------------------------------------------------------------
 
 module  color_mapper( 
-    input logic Clk
+    input logic Clk,
     input logic [9:0] BallX, BallY, DrawX, DrawY, Ball_size,
     input logic [15:0] canvas [27:0][27:0],
     output logic [7:0]  Red, Green, Blue 
@@ -25,7 +25,7 @@ module  color_mapper(
     logic [4:0] X_Block, Y_Block;
 	logic [9:0] X, Y;
     logic [15:0] Addr;
-    logic [9:0] numrow;
+    logic [15:0] numrow;
     logic [3:0] numcol;
     logic [7:0] line;
 
@@ -59,41 +59,41 @@ module  color_mapper(
         end
 
         //set_addr
-        if (DrawY >= 164 && DrawY <= 178 && DrawX >= 55 && DrawX <= 65) //0 - num1
+        if (DrawY >= 164 && DrawY <= 178 && DrawX >= 55-2 && DrawX <= 65) //0 - num1
             Addr = NUM_0 + line%15;
-        else if (DrawY >= 179 && DrawY <= 193 && DrawX >= 55 && DrawX <= 65) //1 - num1
+        else if (DrawY >= 179 && DrawY <= 193 && DrawX >= 55-2 && DrawX <= 65 - 2) //1 - num1
             Addr = NUM_1 + line%15;
-        else if (DrawY >= 194 && DrawY <= 208 && DrawX >= 55 && DrawX <= 65) //2 - num1
+        else if (DrawY >= 194 && DrawY <= 208 && DrawX >= 55-2 && DrawX <= 65 - 2) //2 - num1
             Addr = NUM_2 + line%15;
-        else if (DrawY >= 209 && DrawY <= 223 && DrawX >= 55 && DrawX <= 65) //3 - num1
+        else if (DrawY >= 209 && DrawY <= 223 && DrawX >= 55-2 && DrawX <= 65 - 2) //3 - num1
             Addr = NUM_3 + line%15;
-        else if (DrawY >= 224 && DrawY <= 238 && DrawX >= 55 && DrawX <= 65) //4 - num1
+        else if (DrawY >= 224 && DrawY <= 238 && DrawX >= 55-2 && DrawX <= 65 - 2) //4 - num1
             Addr = NUM_4 + line%15;
-        else if (DrawY >= 239 && DrawY <= 253 && DrawX >= 55 && DrawX <= 65) //5 - num1
+        else if (DrawY >= 239 && DrawY <= 253 && DrawX >= 55-2 && DrawX <= 65 - 2) //5 - num1
             Addr = NUM_5 + line%15;
-        else if (DrawY >= 254 && DrawY <= 268 && DrawX >= 55 && DrawX <= 65) //6 - num1
+        else if (DrawY >= 254 && DrawY <= 268 && DrawX >= 55-2 && DrawX <= 65 - 2) //6 - num1
             Addr = NUM_6 + line%15;
-        else if (DrawY >= 269 && DrawY <= 283 && DrawX >= 55 && DrawX <= 65) //7 - num1
+        else if (DrawY >= 269 && DrawY <= 283 && DrawX >= 55-2 && DrawX <= 65 - 2) //7 - num1
             Addr = NUM_7 + line%15; 
-        else if (DrawY >= 284 && DrawY <= 298 && DrawX >= 55 && DrawX <= 65) //8 - num1
+        else if (DrawY >= 284 && DrawY <= 298 && DrawX >= 55-2 && DrawX <= 65 - 2) //8 - num1
             Addr = NUM_8 + line%15;
-        else if (DrawY >= 299 && DrawY <= 313 && DrawX >= 55 && DrawX <= 65) //9 - num1
+        else if (DrawY >= 299 && DrawY <= 313 && DrawX >= 55-2 && DrawX <= 65 - 2) //9 - num1
             Addr = NUM_9 + line%15;
         
-        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 66 && DrawX <= 76) //:
-            Addr = NUM_: + line%15;
+        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 66-2 && DrawX <= 76 - 2) //:
+            Addr = NUM_colon + line%15;
 
-        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 99 && DrawX <= 109) //.
-            Addr = NUM_ + line%15;
+        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 99-2 && DrawX <= 109 - 2) //.
+            Addr = NUM_dp + line%15;
 
-        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 132 && DrawX <= 142) //%
-            Addr = NUM_% + line%15;
+        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 132-2 && DrawX <= 142 - 2) //%
+            Addr = NUM_percent + line%15;
 
         else 
             Addr = NUM_0;
 
         //num_on_proc
-        if (DrawY >= 164 && DrawY <= 314 && DrawX >= 55 && DrawX <= 143 && numrow[numcol])
+        if (DrawY >= 164 && DrawY <= 314 && DrawX >= 55 && DrawX <= 143 && numrow[16 - numcol])
             num_on = 1'b1;
         else 
             num_on = 1'b0;
@@ -117,6 +117,12 @@ module  color_mapper(
                 Green = 8'h88;
                 Blue = 8'h88;
             end
+		  else if (DrawY >= 164 && DrawY <= 314 && DrawX >= 55 && DrawX <= 143 && ~num_on)
+				begin
+					 Red = 8'h34;
+					 Green = 8'h20;
+					 Blue = 8'ha9;
+				end
         else if (canvas_on)
             begin
                 Red = canvas[X_Block][Y_Block][10:3];
