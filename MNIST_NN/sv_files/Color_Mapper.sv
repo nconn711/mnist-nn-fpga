@@ -32,7 +32,7 @@ module  color_mapper(
     assign X = (DrawX >= 200-1) ? (DrawX - (200-1)) : 10'hfff;
     assign Y = (DrawY >= (44-1)) ? (DrawY - (44-1)) : 10'hfff;
     assign line = (DrawY >= (165-1) && DrawY <= (315-1)) ? (DrawY - 164) : 8'hff; 
-    assign numcol = (DrawX >= 55 && DrawX <= 65) ? (DrawX - 55) : 4'hf;
+    assign numcol = (DrawX >= 55 && DrawX <= 143) ? ((DrawX - 55)%11) : 4'hf;
 
     int DistX, DistY, Size;
 	assign DistX = DrawX - BallX;
@@ -59,31 +59,41 @@ module  color_mapper(
         end
 
         //set_addr
-        if (line/15 == 8'h00)
+        if (DrawY >= 164 && DrawY <= 178 && DrawX >= 55 && DrawX <= 65) //0 - num1
             Addr = NUM_0 + line%15;
-        else if (line/15 == 8'h01)
+        else if (DrawY >= 179 && DrawY <= 193 && DrawX >= 55 && DrawX <= 65) //1 - num1
             Addr = NUM_1 + line%15;
-        else if (line/15 == 8'h02)
+        else if (DrawY >= 194 && DrawY <= 208 && DrawX >= 55 && DrawX <= 65) //2 - num1
             Addr = NUM_2 + line%15;
-        else if (line/15 == 8'h03)
+        else if (DrawY >= 209 && DrawY <= 223 && DrawX >= 55 && DrawX <= 65) //3 - num1
             Addr = NUM_3 + line%15;
-        else if (line/15 == 8'h04)
+        else if (DrawY >= 224 && DrawY <= 238 && DrawX >= 55 && DrawX <= 65) //4 - num1
             Addr = NUM_4 + line%15;
-        else if (line/15 == 8'h05)
+        else if (DrawY >= 239 && DrawY <= 253 && DrawX >= 55 && DrawX <= 65) //5 - num1
             Addr = NUM_5 + line%15;
-        else if (line/15 == 8'h06)
+        else if (DrawY >= 254 && DrawY <= 268 && DrawX >= 55 && DrawX <= 65) //6 - num1
             Addr = NUM_6 + line%15;
-        else if (line/15 == 8'h07)
-            Addr = NUM_7 + line%15;
-        else if (line/15 == 8'h08)
+        else if (DrawY >= 269 && DrawY <= 283 && DrawX >= 55 && DrawX <= 65) //7 - num1
+            Addr = NUM_7 + line%15; 
+        else if (DrawY >= 284 && DrawY <= 298 && DrawX >= 55 && DrawX <= 65) //8 - num1
             Addr = NUM_8 + line%15;
-        else if (line/15 == 8'h09)
+        else if (DrawY >= 299 && DrawY <= 313 && DrawX >= 55 && DrawX <= 65) //9 - num1
             Addr = NUM_9 + line%15;
+        
+        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 66 && DrawX <= 76) //:
+            Addr = NUM_: + line%15;
+
+        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 99 && DrawX <= 109) //.
+            Addr = NUM_ + line%15;
+
+        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 132 && DrawX <= 142) //%
+            Addr = NUM_% + line%15;
+
         else 
             Addr = NUM_0;
 
         //num_on_proc
-        if (DrawY >= 164 && DrawY <= 314 && DrawX >= 55 && DrawX <= 65 && numrow[numcol])
+        if (DrawY >= 164 && DrawY <= 314 && DrawX >= 55 && DrawX <= 143 && numrow[numcol])
             num_on = 1'b1;
         else 
             num_on = 1'b0;
