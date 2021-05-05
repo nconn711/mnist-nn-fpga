@@ -138,6 +138,18 @@ void setMouseData(BOOT_MOUSE_REPORT* buf)
 	IOWR_ALTERA_AVALON_PIO_DATA(BUTTON_BASE, buf->button);
 }
 
+void readProbabilities(WORD* buf)
+{
+	for (int i = 0; i < 10; ++i)
+		buf[i] = IORD_ALTERA_AVALON_PIO_DATA(FIXEDPOINT_PROB_BASE + i);
+}
+
+void setProbabilites(WORD* buf)
+{	
+	for (int i = 0; i < 10; ++i)
+		buf[i] = IOWR_ALTERA_AVALON_PIO_DATA(FLOATPOINT_PROB_BASE + i);
+}
+
 int main() {
 	BYTE rcode;
 	BOOT_MOUSE_REPORT buf;		//USB mouse report
@@ -147,6 +159,13 @@ int main() {
 	BYTE errorflag = 0; //flag once we get an error device so we don't keep dumping out state info
 	BYTE device;
 	WORD keycode;
+
+	WORD fixedpoint[10];
+	WORD floatingpoint[10];
+	float probabilites[10];
+	float normal;
+	float value;
+	BYTE tens, ones, tenth, hundredth;
 
 	/*
 	printf("all MAX3421E register values...\n");
@@ -163,6 +182,24 @@ int main() {
 	buf.Xdispl = 0;
 	buf.Ydispl = 0;
 	while (1) {
+
+		// read probabilites from hardware and convert to floating point/send back to hardware
+		readProbabilities(fixedpoint);
+		normal = 0.0f;
+		for (int i = 0; i < 10; ++i) {
+			probabilites[i] = fixedpoint[i] / (1 >> 11);
+			normal += probabilites[i];
+		}
+		for (int i = 0; i < 10; ++i) {
+			value = probabilites[i] / normal;
+			tens = (int)(value * 10);
+			ones = (int)(value * 100) % 10;
+			tenth =  (int)(value * 1000) % 10;
+			hundredth = (int)(value * 10000) % 10;
+			floatingpoint[i] = (tens << (8*3)) | (ones << (8*2)) | (tenth << (8*1)) | (hundredth);
+		}
+		setProbabilites(floatingpoint);
+
 		printf(".");
 		MAX3421E_Task();
 		usleep(1000);
