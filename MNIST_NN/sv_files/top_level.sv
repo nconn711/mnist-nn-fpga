@@ -48,6 +48,8 @@ module top_level (
 	logic [7:0] Red, Blue, Green;
 	logic [7:0] keycode;
 	logic [7:0] x_displ, y_displ, button;
+	logic [15:0] floatingpoint [9:0];
+	logic [15:0] probability [9:0];
 
 	//////// Structural Code ///////////
 	assign ARDUINO_IO[10] = SPI0_CS_N;
@@ -112,7 +114,29 @@ module top_level (
 		.keycode_export(keycode),
 		.x_displ_export(x_displ),
 		.y_displ_export(y_displ),
-		.button_export(button)
+		.button_export(button),
+		
+		.fixedpoint_0_export(probability[0]),
+		.fixedpoint_1_export(probability[1]),
+		.fixedpoint_2_export(probability[2]),
+		.fixedpoint_3_export(probability[3]),
+		.fixedpoint_4_export(probability[4]),
+		.fixedpoint_5_export(probability[5]),
+		.fixedpoint_6_export(probability[6]),
+		.fixedpoint_7_export(probability[7]),
+		.fixedpoint_8_export(probability[8]),
+		.fixedpoint_9_export(probability[9]),
+
+		.floatingpoint_0_export(floatingpoint[0]),
+		.floatingpoint_1_export(floatingpoint[1]),
+		.floatingpoint_2_export(floatingpoint[2]),
+		.floatingpoint_3_export(floatingpoint[3]),
+		.floatingpoint_4_export(floatingpoint[4]),
+		.floatingpoint_5_export(floatingpoint[5]),
+		.floatingpoint_6_export(floatingpoint[6]),
+		.floatingpoint_7_export(floatingpoint[7]),
+		.floatingpoint_8_export(floatingpoint[8]),
+		.floatingpoint_9_export(floatingpoint[9])
 		
 	 );
 
@@ -182,7 +206,6 @@ module top_level (
 		.canvas(canvas)
 	);
 
-	logic [15:0] probability [9:0];
 	logic [3:0] argmax;
 	logic [23:0] display;
 
@@ -197,9 +220,6 @@ module top_level (
 		else
 			display = {argmax, 4'b0, probability[SW]};
 	end
-
-	//assign display = {8'b0, probability[SW]};
-	//assign display = {2'b0, x_pos, 2'b0, y_pos};
 
 	hex_driver hex_display [5:0] ( 
 		.In0(display), 

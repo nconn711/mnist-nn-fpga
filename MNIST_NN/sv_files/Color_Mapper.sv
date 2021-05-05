@@ -16,7 +16,8 @@ module  color_mapper(
     input logic Clk,
     input logic [9:0] BallX, BallY, DrawX, DrawY, Ball_size,
     input logic [15:0] canvas [27:0][27:0],
-    output logic [7:0]  Red, Green, Blue 
+    output logic [7:0]  Red, Green, Blue,
+    input logic [15:0] floatingpoint [9:0] // 16-bit value is {tens, ones, tenth, hundredth}
 );
 
     logic num_on;

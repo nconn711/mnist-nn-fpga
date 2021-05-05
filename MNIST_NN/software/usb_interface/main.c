@@ -141,13 +141,13 @@ void setMouseData(BOOT_MOUSE_REPORT* buf)
 void readProbabilities(WORD* buf)
 {
 	for (int i = 0; i < 10; ++i)
-		buf[i] = IORD_ALTERA_AVALON_PIO_DATA(FIXEDPOINT_PROB_BASE + i);
+		buf[i] = IORD_ALTERA_AVALON_PIO_DATA(FIXEDPOINT_0_BASE + i);
 }
 
 void setProbabilites(WORD* buf)
 {	
 	for (int i = 0; i < 10; ++i)
-		buf[i] = IOWR_ALTERA_AVALON_PIO_DATA(FLOATPOINT_PROB_BASE + i);
+		buf[i] = IOWR_ALTERA_AVALON_PIO_DATA(FLOATINGPOINT_0_BASE + i);
 }
 
 int main() {

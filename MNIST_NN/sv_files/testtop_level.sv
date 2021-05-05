@@ -87,6 +87,17 @@ module testtop_level (
 	logic [9:0] x_pos, y_pos;
 	logic canvas_run;
 
+	logic [15:0] floatingpoint [9:0];
+
+	always_comb begin
+		for (int i = 0; i < 5; i++) begin
+			floatingpoint[i] = {4'd9, 4'd8, 4'd7, 4'd6}
+		end
+		for (int i = 5; i < 10; i++) begin
+			floatingpoint[i] = {4'd0, 4'd1, 4'd2, 4'd3}
+		end
+	end
+
 	assign canvas_run = ((x_displ != 0 || y_displ != 0) && (button & 8'b1)) ? 1'b1 : 1'b0;
 
 	vga_controller vga_instance ( 
@@ -122,7 +133,8 @@ module testtop_level (
 		.canvas(canvas),
         .Red(Red),
         .Green(Green),
-        .Blue(Blue)
+        .Blue(Blue),
+		.floatingpoint(floatingpoint)
     );
 
 	canvas_editor canvas_instance (
