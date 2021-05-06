@@ -59,33 +59,604 @@ module  color_mapper(
             end
         end
 
-        //set_addr
-        if (DrawY >= 164 && DrawY <= 178 && DrawX >= 55-2 && DrawX <= 65) //0 - num1
+        ////set_addr
+        //leftmost numbers
+        if (DrawY >= 164 && DrawY <= 178 && DrawX >= 55-2 && DrawX <= 65) //0
             Addr = NUM_0 + line%15;
-        else if (DrawY >= 179 && DrawY <= 193 && DrawX >= 55-2 && DrawX <= 65 - 2) //1 - num1
+        else if (DrawY >= 179 && DrawY <= 193 && DrawX >= 55-2 && DrawX <= 65 - 2) //1
             Addr = NUM_1 + line%15;
-        else if (DrawY >= 194 && DrawY <= 208 && DrawX >= 55-2 && DrawX <= 65 - 2) //2 - num1
+        else if (DrawY >= 194 && DrawY <= 208 && DrawX >= 55-2 && DrawX <= 65 - 2) //2
             Addr = NUM_2 + line%15;
-        else if (DrawY >= 209 && DrawY <= 223 && DrawX >= 55-2 && DrawX <= 65 - 2) //3 - num1
+        else if (DrawY >= 209 && DrawY <= 223 && DrawX >= 55-2 && DrawX <= 65 - 2) //3
             Addr = NUM_3 + line%15;
-        else if (DrawY >= 224 && DrawY <= 238 && DrawX >= 55-2 && DrawX <= 65 - 2) //4 - num1
+        else if (DrawY >= 224 && DrawY <= 238 && DrawX >= 55-2 && DrawX <= 65 - 2) //4
             Addr = NUM_4 + line%15;
-        else if (DrawY >= 239 && DrawY <= 253 && DrawX >= 55-2 && DrawX <= 65 - 2) //5 - num1
+        else if (DrawY >= 239 && DrawY <= 253 && DrawX >= 55-2 && DrawX <= 65 - 2) //5
             Addr = NUM_5 + line%15;
-        else if (DrawY >= 254 && DrawY <= 268 && DrawX >= 55-2 && DrawX <= 65 - 2) //6 - num1
+        else if (DrawY >= 254 && DrawY <= 268 && DrawX >= 55-2 && DrawX <= 65 - 2) //6
             Addr = NUM_6 + line%15;
-        else if (DrawY >= 269 && DrawY <= 283 && DrawX >= 55-2 && DrawX <= 65 - 2) //7 - num1
+        else if (DrawY >= 269 && DrawY <= 283 && DrawX >= 55-2 && DrawX <= 65 - 2) //7
             Addr = NUM_7 + line%15; 
-        else if (DrawY >= 284 && DrawY <= 298 && DrawX >= 55-2 && DrawX <= 65 - 2) //8 - num1
+        else if (DrawY >= 284 && DrawY <= 298 && DrawX >= 55-2 && DrawX <= 65 - 2) //8 
             Addr = NUM_8 + line%15;
-        else if (DrawY >= 299 && DrawY <= 313 && DrawX >= 55-2 && DrawX <= 65 - 2) //9 - num1
+        else if (DrawY >= 299 && DrawY <= 313 && DrawX >= 55-2 && DrawX <= 65 - 2) //9 
             Addr = NUM_9 + line%15;
         
+
         else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 66-2 && DrawX <= 76 - 2) //:
             Addr = NUM_colon + line%15;
 
-        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 99-2 && DrawX <= 109 - 2) //.
+        //tens place
+        else if (DrawY >= 164 && DrawY <= 178 && DrawX >= 77-2 && DrawX <= 87-2) //num1
+            unique case(floatingpoint[0][15:12])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 179 && DrawY <= 193 && DrawX >= 77-2 && DrawX <= 87-2) //num1
+            unique case(floatingpoint[1][15:12])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 194 && DrawY <= 208 && DrawX >= 77-2 && DrawX <= 87-2) //num1
+            unique case(floatingpoint[2][15:12])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 209 && DrawY <= 223 && DrawX >= 77-2 && DrawX <= 87-2) //num1
+            unique case(floatingpoint[3][15:12])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 224 && DrawY <= 238 && DrawX >= 77-2 && DrawX <= 87-2) //num1
+            unique case(floatingpoint[4][15:12])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 239 && DrawY <= 253 && DrawX >= 77-2 && DrawX <= 87-2) //num1
+            unique case(floatingpoint[5][15:12])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 254 && DrawY <= 268 && DrawX >= 77-2 && DrawX <= 87-2) //num1
+            unique case(floatingpoint[6][15:12])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 269 && DrawY <= 283 && DrawX >= 77-2 && DrawX <= 87-2) //num1
+            unique case(floatingpoint[7][15:12])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 284 && DrawY <= 298 && DrawX >= 77-2 && DrawX <= 87-2) //num1
+            unique case(floatingpoint[8][15:12])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 299 && DrawY <= 313 && DrawX >= 77-2 && DrawX <= 87-2) //num1
+            unique case(floatingpoint[9][15:12])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+
+        //ones place
+        else if (DrawY >= 164 && DrawY <= 178 && DrawX >= 88-2 && DrawX <= 98-2) //num2
+            unique case(floatingpoint[0][11:8])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 179 && DrawY <= 193 && DrawX >= 88-2 && DrawX <= 98-2) //num2
+            unique case(floatingpoint[1][11:8])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 194 && DrawY <= 208 && DrawX >= 88-2 && DrawX <= 98-2) //num2
+            unique case(floatingpoint[2][11:8])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 209 && DrawY <= 223 && DrawX >= 88-2 && DrawX <= 98-2) //num2
+            unique case(floatingpoint[3][11:8])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 224 && DrawY <= 238 && DrawX >= 88-2 && DrawX <= 98-2) //num2
+            unique case(floatingpoint[4][11:8])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 239 && DrawY <= 253 && DrawX >= 88-2 && DrawX <= 98-2) //num2
+            unique case(floatingpoint[5][11:8])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 254 && DrawY <= 268 && DrawX >= 88-2 && DrawX <= 98-2) //num2
+            unique case(floatingpoint[6][11:8])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 269 && DrawY <= 283 && DrawX >= 88-2 && DrawX <= 98-2) //num2
+            unique case(floatingpoint[7][11:8])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 284 && DrawY <= 298 && DrawX >= 88-2 && DrawX <= 98-2) //num2
+            unique case(floatingpoint[8][11:8])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 299 && DrawY <= 313 && DrawX >= 88-2 && DrawX <= 98-2) //num2
+            unique case(floatingpoint[9][11:8])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+
+
+        else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 99-2 && DrawX <= 109-2) //.
             Addr = NUM_dp + line%15;
+
+        //tenths place
+        else if (DrawY >= 164 && DrawY <= 178 && DrawX >= 110-2 && DrawX <= 120-2) //num3
+            unique case(floatingpoint[0][7:4])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 179 && DrawY <= 193 && DrawX >= 110-2 && DrawX <= 120-2) //num3
+            unique case(floatingpoint[1][7:4])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 194 && DrawY <= 208 && DrawX >= 110-2 && DrawX <= 120-2) //num3
+            unique case(floatingpoint[2][7:4])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 209 && DrawY <= 223 && DrawX >= 110-2 && DrawX <= 120-2) //num3
+            unique case(floatingpoint[3][7:4])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 224 && DrawY <= 238 && DrawX >= 110-2 && DrawX <= 120-2) //num3
+            unique case(floatingpoint[4][7:4])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 239 && DrawY <= 253 && DrawX >= 110-2 && DrawX <= 120-2) //num3
+            unique case(floatingpoint[5][7:4])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 254 && DrawY <= 268 && DrawX >= 110-2 && DrawX <= 120-2) //num3
+            unique case(floatingpoint[6][7:4])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 269 && DrawY <= 283 && DrawX >= 110-2 && DrawX <= 120-2) //num3
+            unique case(floatingpoint[7][7:4])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 284 && DrawY <= 298 && DrawX >= 110-2 && DrawX <= 120-2) //num3
+            unique case(floatingpoint[8][7:4])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 299 && DrawY <= 313 && DrawX >= 110-2 && DrawX <= 120-2) //num3
+            unique case(floatingpoint[9][7:4])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+
+        //hundreths place
+        else if (DrawY >= 164 && DrawY <= 178 && DrawX >= 121-2 && DrawX <= 131-2) //num4
+            unique case(floatingpoint[0][3:0])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 179 && DrawY <= 193 && DrawX >= 121-2 && DrawX <= 131-2) //num4
+            unique case(floatingpoint[1][3:0])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 194 && DrawY <= 208 && DrawX >= 121-2 && DrawX <= 131-2) //num4
+            unique case(floatingpoint[2][3:0])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 209 && DrawY <= 223 && DrawX >= 121-2 && DrawX <= 131-2) //num4
+            unique case(floatingpoint[3][3:0])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 224 && DrawY <= 238 && DrawX >= 121-2 && DrawX <= 131-2) //num4
+            unique case(floatingpoint[4][3:0])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 239 && DrawY <= 253 && DrawX >= 121-2 && DrawX <= 131-2) //num4
+            unique case(floatingpoint[5][3:0])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 254 && DrawY <= 268 && DrawX >= 121-2 && DrawX <= 131-2) //num4
+            unique case(floatingpoint[6][3:0])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 269 && DrawY <= 283 && DrawX >= 121-2 && DrawX <= 131-2) //num4
+            unique case(floatingpoint[7][3:0])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 284 && DrawY <= 298 && DrawX >= 121-2 && DrawX <= 131-2) //num4
+            unique case(floatingpoint[8][3:0])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
+        else if (DrawY >= 299 && DrawY <= 313 && DrawX >= 121-2 && DrawX <= 131-2) //num4
+            unique case(floatingpoint[9][3:0])
+                4'b0000: Addr = NUM_0 + line%15;
+                4'b0001: Addr = NUM_1 + line%15;
+                4'b0010: Addr = NUM_2 + line%15;
+                4'b0011: Addr = NUM_3 + line%15;
+                4'b0100: Addr = NUM_4 + line%15;
+                4'b0101: Addr = NUM_5 + line%15;
+                4'b0110: Addr = NUM_6 + line%15;
+                4'b0111: Addr = NUM_7 + line%15;            
+                4'b1000: Addr = NUM_8 + line%15;
+                4'b1001: Addr = NUM_9 + line%15;
+                default: Addr = NUM_0 + line%15;
+            endcase
 
         else if (DrawY >= 164 && DrawY <= 313 && DrawX >= 132-2 && DrawX <= 142 - 2) //%
             Addr = NUM_percent + line%15;
