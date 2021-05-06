@@ -28,7 +28,20 @@ module canvas_editor(
 			end
 			else if (Run) begin
 				if (X_Block != 31 && Y_Block != 31) begin
-					canvas[X_Block][Y_Block] <= (canvas[X_Block][Y_Block] < 1548) ? canvas[X_Block][Y_Block] + 500 : 2047;
+					for (int x=-1; x<1; x++) begin
+						if (Xblock + x < 0 || Xblock + x > 27)
+							continue;
+				 		for (int y=-1; y<1; y++) begin
+							if (Yblock + y < 0 || Yblock + y > 27)
+								continue;
+							if (x == 0 && y == 0)
+								canvas[X_Block][Y_Block] <= 2047;
+							else if (x == 0 || y == 0)
+								canvas[X_Block][Y_Block] <= (canvas[X_Block][Y_Block] < 1548) ? canvas[X_Block][Y_Block] + 700 : 2047;
+							else
+								canvas[X_Block][Y_Block] <= (canvas[X_Block][Y_Block] < 1548) ? canvas[X_Block][Y_Block] + 400 : 2047;
+						end
+					end
 				end
 			end
     end
