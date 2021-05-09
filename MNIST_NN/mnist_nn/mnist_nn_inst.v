@@ -24,6 +24,26 @@
 		.usb_irq_export                 (<connected-to-usb_irq_export>),                 //                 usb_irq.export
 		.usb_rst_export                 (<connected-to-usb_rst_export>),                 //                 usb_rst.export
 		.x_displ_export                 (<connected-to-x_displ_export>),                 //                 x_displ.export
-		.y_displ_export                 (<connected-to-y_displ_export>)                  //                 y_displ.export
+		.y_displ_export                 (<connected-to-y_displ_export>),                 //                 y_displ.export
+		.floatingpoint_0_export         (<connected-to-floatingpoint_0_export>),         //         floatingpoint_0.export
+		.floatingpoint_1_export         (<connected-to-floatingpoint_1_export>),         //         floatingpoint_1.export
+		.floatingpoint_2_export         (<connected-to-floatingpoint_2_export>),         //         floatingpoint_2.export
+		.floatingpoint_3_export         (<connected-to-floatingpoint_3_export>),         //         floatingpoint_3.export
+		.floatingpoint_4_export         (<connected-to-floatingpoint_4_export>),         //         floatingpoint_4.export
+		.floatingpoint_5_export         (<connected-to-floatingpoint_5_export>),         //         floatingpoint_5.export
+		.floatingpoint_6_export         (<connected-to-floatingpoint_6_export>),         //         floatingpoint_6.export
+		.floatingpoint_7_export         (<connected-to-floatingpoint_7_export>),         //         floatingpoint_7.export
+		.floatingpoint_8_export         (<connected-to-floatingpoint_8_export>),         //         floatingpoint_8.export
+		.floatingpoint_9_export         (<connected-to-floatingpoint_9_export>),         //         floatingpoint_9.export
+		.fixedpoint_0_export            (<connected-to-fixedpoint_0_export>),            //            fixedpoint_0.export
+		.fixedpoint_1_export            (<connected-to-fixedpoint_1_export>),            //            fixedpoint_1.export
+		.fixedpoint_2_export            (<connected-to-fixedpoint_2_export>),            //            fixedpoint_2.export
+		.fixedpoint_3_export            (<connected-to-fixedpoint_3_export>),            //            fixedpoint_3.export
+		.fixedpoint_4_export            (<connected-to-fixedpoint_4_export>),            //            fixedpoint_4.export
+		.fixedpoint_5_export            (<connected-to-fixedpoint_5_export>),            //            fixedpoint_5.export
+		.fixedpoint_6_export            (<connected-to-fixedpoint_6_export>),            //            fixedpoint_6.export
+		.fixedpoint_7_export            (<connected-to-fixedpoint_7_export>),            //            fixedpoint_7.export
+		.fixedpoint_8_export            (<connected-to-fixedpoint_8_export>),            //            fixedpoint_8.export
+		.fixedpoint_9_export            (<connected-to-fixedpoint_9_export>)             //            fixedpoint_9.export
 	);
 

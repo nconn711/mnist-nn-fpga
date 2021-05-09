@@ -191,10 +191,11 @@ module top_level (
         .DrawX(DrawX_Interconnect),
         .DrawY(DrawY_Interconnect), 
         .Ball_size(BallS_Interconnect),
-		.canvas(canvas),
+		  .canvas(canvas),
         .Red(Red),
         .Green(Green),
-        .Blue(Blue)
+        .Blue(Blue),
+		  .floatingpoint(floatingpoint)
     );
 
 	canvas_editor canvas_instance (

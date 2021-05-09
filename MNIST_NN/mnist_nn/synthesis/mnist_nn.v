@@ -6,6 +6,26 @@
 module mnist_nn (
 		output wire [7:0]  button_export,                  //                  button.export
 		input  wire        clk_clk,                        //                     clk.clk
+		input  wire [15:0] fixedpoint_0_export,            //            fixedpoint_0.export
+		input  wire [15:0] fixedpoint_1_export,            //            fixedpoint_1.export
+		input  wire [15:0] fixedpoint_2_export,            //            fixedpoint_2.export
+		input  wire [15:0] fixedpoint_3_export,            //            fixedpoint_3.export
+		input  wire [15:0] fixedpoint_4_export,            //            fixedpoint_4.export
+		input  wire [15:0] fixedpoint_5_export,            //            fixedpoint_5.export
+		input  wire [15:0] fixedpoint_6_export,            //            fixedpoint_6.export
+		input  wire [15:0] fixedpoint_7_export,            //            fixedpoint_7.export
+		input  wire [15:0] fixedpoint_8_export,            //            fixedpoint_8.export
+		input  wire [15:0] fixedpoint_9_export,            //            fixedpoint_9.export
+		output wire [15:0] floatingpoint_0_export,         //         floatingpoint_0.export
+		output wire [15:0] floatingpoint_1_export,         //         floatingpoint_1.export
+		output wire [15:0] floatingpoint_2_export,         //         floatingpoint_2.export
+		output wire [15:0] floatingpoint_3_export,         //         floatingpoint_3.export
+		output wire [15:0] floatingpoint_4_export,         //         floatingpoint_4.export
+		output wire [15:0] floatingpoint_5_export,         //         floatingpoint_5.export
+		output wire [15:0] floatingpoint_6_export,         //         floatingpoint_6.export
+		output wire [15:0] floatingpoint_7_export,         //         floatingpoint_7.export
+		output wire [15:0] floatingpoint_8_export,         //         floatingpoint_8.export
+		output wire [15:0] floatingpoint_9_export,         //         floatingpoint_9.export
 		output wire [15:0] hex_digits_export,              //              hex_digits.export
 		input  wire [1:0]  key_external_connection_export, // key_external_connection.export
 		output wire [7:0]  keycode_export,                 //                 keycode.export
@@ -129,6 +149,76 @@ module mnist_nn (
 	wire   [1:0] mm_interconnect_0_button_s1_address;                         // mm_interconnect_0:button_s1_address -> button:address
 	wire         mm_interconnect_0_button_s1_write;                           // mm_interconnect_0:button_s1_write -> button:write_n
 	wire  [31:0] mm_interconnect_0_button_s1_writedata;                       // mm_interconnect_0:button_s1_writedata -> button:writedata
+	wire         mm_interconnect_0_floatingpoint_0_s1_chipselect;             // mm_interconnect_0:floatingpoint_0_s1_chipselect -> floatingpoint_0:chipselect
+	wire  [31:0] mm_interconnect_0_floatingpoint_0_s1_readdata;               // floatingpoint_0:readdata -> mm_interconnect_0:floatingpoint_0_s1_readdata
+	wire   [1:0] mm_interconnect_0_floatingpoint_0_s1_address;                // mm_interconnect_0:floatingpoint_0_s1_address -> floatingpoint_0:address
+	wire         mm_interconnect_0_floatingpoint_0_s1_write;                  // mm_interconnect_0:floatingpoint_0_s1_write -> floatingpoint_0:write_n
+	wire  [31:0] mm_interconnect_0_floatingpoint_0_s1_writedata;              // mm_interconnect_0:floatingpoint_0_s1_writedata -> floatingpoint_0:writedata
+	wire         mm_interconnect_0_floatingpoint_1_s1_chipselect;             // mm_interconnect_0:floatingpoint_1_s1_chipselect -> floatingpoint_1:chipselect
+	wire  [31:0] mm_interconnect_0_floatingpoint_1_s1_readdata;               // floatingpoint_1:readdata -> mm_interconnect_0:floatingpoint_1_s1_readdata
+	wire   [1:0] mm_interconnect_0_floatingpoint_1_s1_address;                // mm_interconnect_0:floatingpoint_1_s1_address -> floatingpoint_1:address
+	wire         mm_interconnect_0_floatingpoint_1_s1_write;                  // mm_interconnect_0:floatingpoint_1_s1_write -> floatingpoint_1:write_n
+	wire  [31:0] mm_interconnect_0_floatingpoint_1_s1_writedata;              // mm_interconnect_0:floatingpoint_1_s1_writedata -> floatingpoint_1:writedata
+	wire         mm_interconnect_0_floatingpoint_2_s1_chipselect;             // mm_interconnect_0:floatingpoint_2_s1_chipselect -> floatingpoint_2:chipselect
+	wire  [31:0] mm_interconnect_0_floatingpoint_2_s1_readdata;               // floatingpoint_2:readdata -> mm_interconnect_0:floatingpoint_2_s1_readdata
+	wire   [1:0] mm_interconnect_0_floatingpoint_2_s1_address;                // mm_interconnect_0:floatingpoint_2_s1_address -> floatingpoint_2:address
+	wire         mm_interconnect_0_floatingpoint_2_s1_write;                  // mm_interconnect_0:floatingpoint_2_s1_write -> floatingpoint_2:write_n
+	wire  [31:0] mm_interconnect_0_floatingpoint_2_s1_writedata;              // mm_interconnect_0:floatingpoint_2_s1_writedata -> floatingpoint_2:writedata
+	wire         mm_interconnect_0_floatingpoint_3_s1_chipselect;             // mm_interconnect_0:floatingpoint_3_s1_chipselect -> floatingpoint_3:chipselect
+	wire  [31:0] mm_interconnect_0_floatingpoint_3_s1_readdata;               // floatingpoint_3:readdata -> mm_interconnect_0:floatingpoint_3_s1_readdata
+	wire   [1:0] mm_interconnect_0_floatingpoint_3_s1_address;                // mm_interconnect_0:floatingpoint_3_s1_address -> floatingpoint_3:address
+	wire         mm_interconnect_0_floatingpoint_3_s1_write;                  // mm_interconnect_0:floatingpoint_3_s1_write -> floatingpoint_3:write_n
+	wire  [31:0] mm_interconnect_0_floatingpoint_3_s1_writedata;              // mm_interconnect_0:floatingpoint_3_s1_writedata -> floatingpoint_3:writedata
+	wire         mm_interconnect_0_floatingpoint_4_s1_chipselect;             // mm_interconnect_0:floatingpoint_4_s1_chipselect -> floatingpoint_4:chipselect
+	wire  [31:0] mm_interconnect_0_floatingpoint_4_s1_readdata;               // floatingpoint_4:readdata -> mm_interconnect_0:floatingpoint_4_s1_readdata
+	wire   [1:0] mm_interconnect_0_floatingpoint_4_s1_address;                // mm_interconnect_0:floatingpoint_4_s1_address -> floatingpoint_4:address
+	wire         mm_interconnect_0_floatingpoint_4_s1_write;                  // mm_interconnect_0:floatingpoint_4_s1_write -> floatingpoint_4:write_n
+	wire  [31:0] mm_interconnect_0_floatingpoint_4_s1_writedata;              // mm_interconnect_0:floatingpoint_4_s1_writedata -> floatingpoint_4:writedata
+	wire         mm_interconnect_0_floatingpoint_5_s1_chipselect;             // mm_interconnect_0:floatingpoint_5_s1_chipselect -> floatingpoint_5:chipselect
+	wire  [31:0] mm_interconnect_0_floatingpoint_5_s1_readdata;               // floatingpoint_5:readdata -> mm_interconnect_0:floatingpoint_5_s1_readdata
+	wire   [1:0] mm_interconnect_0_floatingpoint_5_s1_address;                // mm_interconnect_0:floatingpoint_5_s1_address -> floatingpoint_5:address
+	wire         mm_interconnect_0_floatingpoint_5_s1_write;                  // mm_interconnect_0:floatingpoint_5_s1_write -> floatingpoint_5:write_n
+	wire  [31:0] mm_interconnect_0_floatingpoint_5_s1_writedata;              // mm_interconnect_0:floatingpoint_5_s1_writedata -> floatingpoint_5:writedata
+	wire         mm_interconnect_0_floatingpoint_6_s1_chipselect;             // mm_interconnect_0:floatingpoint_6_s1_chipselect -> floatingpoint_6:chipselect
+	wire  [31:0] mm_interconnect_0_floatingpoint_6_s1_readdata;               // floatingpoint_6:readdata -> mm_interconnect_0:floatingpoint_6_s1_readdata
+	wire   [1:0] mm_interconnect_0_floatingpoint_6_s1_address;                // mm_interconnect_0:floatingpoint_6_s1_address -> floatingpoint_6:address
+	wire         mm_interconnect_0_floatingpoint_6_s1_write;                  // mm_interconnect_0:floatingpoint_6_s1_write -> floatingpoint_6:write_n
+	wire  [31:0] mm_interconnect_0_floatingpoint_6_s1_writedata;              // mm_interconnect_0:floatingpoint_6_s1_writedata -> floatingpoint_6:writedata
+	wire         mm_interconnect_0_floatingpoint_7_s1_chipselect;             // mm_interconnect_0:floatingpoint_7_s1_chipselect -> floatingpoint_7:chipselect
+	wire  [31:0] mm_interconnect_0_floatingpoint_7_s1_readdata;               // floatingpoint_7:readdata -> mm_interconnect_0:floatingpoint_7_s1_readdata
+	wire   [1:0] mm_interconnect_0_floatingpoint_7_s1_address;                // mm_interconnect_0:floatingpoint_7_s1_address -> floatingpoint_7:address
+	wire         mm_interconnect_0_floatingpoint_7_s1_write;                  // mm_interconnect_0:floatingpoint_7_s1_write -> floatingpoint_7:write_n
+	wire  [31:0] mm_interconnect_0_floatingpoint_7_s1_writedata;              // mm_interconnect_0:floatingpoint_7_s1_writedata -> floatingpoint_7:writedata
+	wire         mm_interconnect_0_floatingpoint_8_s1_chipselect;             // mm_interconnect_0:floatingpoint_8_s1_chipselect -> floatingpoint_8:chipselect
+	wire  [31:0] mm_interconnect_0_floatingpoint_8_s1_readdata;               // floatingpoint_8:readdata -> mm_interconnect_0:floatingpoint_8_s1_readdata
+	wire   [1:0] mm_interconnect_0_floatingpoint_8_s1_address;                // mm_interconnect_0:floatingpoint_8_s1_address -> floatingpoint_8:address
+	wire         mm_interconnect_0_floatingpoint_8_s1_write;                  // mm_interconnect_0:floatingpoint_8_s1_write -> floatingpoint_8:write_n
+	wire  [31:0] mm_interconnect_0_floatingpoint_8_s1_writedata;              // mm_interconnect_0:floatingpoint_8_s1_writedata -> floatingpoint_8:writedata
+	wire         mm_interconnect_0_floatingpoint_9_s1_chipselect;             // mm_interconnect_0:floatingpoint_9_s1_chipselect -> floatingpoint_9:chipselect
+	wire  [31:0] mm_interconnect_0_floatingpoint_9_s1_readdata;               // floatingpoint_9:readdata -> mm_interconnect_0:floatingpoint_9_s1_readdata
+	wire   [1:0] mm_interconnect_0_floatingpoint_9_s1_address;                // mm_interconnect_0:floatingpoint_9_s1_address -> floatingpoint_9:address
+	wire         mm_interconnect_0_floatingpoint_9_s1_write;                  // mm_interconnect_0:floatingpoint_9_s1_write -> floatingpoint_9:write_n
+	wire  [31:0] mm_interconnect_0_floatingpoint_9_s1_writedata;              // mm_interconnect_0:floatingpoint_9_s1_writedata -> floatingpoint_9:writedata
+	wire  [31:0] mm_interconnect_0_fixedpoint_0_s1_readdata;                  // fixedpoint_0:readdata -> mm_interconnect_0:fixedpoint_0_s1_readdata
+	wire   [1:0] mm_interconnect_0_fixedpoint_0_s1_address;                   // mm_interconnect_0:fixedpoint_0_s1_address -> fixedpoint_0:address
+	wire  [31:0] mm_interconnect_0_fixedpoint_1_s1_readdata;                  // fixedpoint_1:readdata -> mm_interconnect_0:fixedpoint_1_s1_readdata
+	wire   [1:0] mm_interconnect_0_fixedpoint_1_s1_address;                   // mm_interconnect_0:fixedpoint_1_s1_address -> fixedpoint_1:address
+	wire  [31:0] mm_interconnect_0_fixedpoint_2_s1_readdata;                  // fixedpoint_2:readdata -> mm_interconnect_0:fixedpoint_2_s1_readdata
+	wire   [1:0] mm_interconnect_0_fixedpoint_2_s1_address;                   // mm_interconnect_0:fixedpoint_2_s1_address -> fixedpoint_2:address
+	wire  [31:0] mm_interconnect_0_fixedpoint_3_s1_readdata;                  // fixedpoint_3:readdata -> mm_interconnect_0:fixedpoint_3_s1_readdata
+	wire   [1:0] mm_interconnect_0_fixedpoint_3_s1_address;                   // mm_interconnect_0:fixedpoint_3_s1_address -> fixedpoint_3:address
+	wire  [31:0] mm_interconnect_0_fixedpoint_4_s1_readdata;                  // fixedpoint_4:readdata -> mm_interconnect_0:fixedpoint_4_s1_readdata
+	wire   [1:0] mm_interconnect_0_fixedpoint_4_s1_address;                   // mm_interconnect_0:fixedpoint_4_s1_address -> fixedpoint_4:address
+	wire  [31:0] mm_interconnect_0_fixedpoint_5_s1_readdata;                  // fixedpoint_5:readdata -> mm_interconnect_0:fixedpoint_5_s1_readdata
+	wire   [1:0] mm_interconnect_0_fixedpoint_5_s1_address;                   // mm_interconnect_0:fixedpoint_5_s1_address -> fixedpoint_5:address
+	wire  [31:0] mm_interconnect_0_fixedpoint_6_s1_readdata;                  // fixedpoint_6:readdata -> mm_interconnect_0:fixedpoint_6_s1_readdata
+	wire   [1:0] mm_interconnect_0_fixedpoint_6_s1_address;                   // mm_interconnect_0:fixedpoint_6_s1_address -> fixedpoint_6:address
+	wire  [31:0] mm_interconnect_0_fixedpoint_7_s1_readdata;                  // fixedpoint_7:readdata -> mm_interconnect_0:fixedpoint_7_s1_readdata
+	wire   [1:0] mm_interconnect_0_fixedpoint_7_s1_address;                   // mm_interconnect_0:fixedpoint_7_s1_address -> fixedpoint_7:address
+	wire  [31:0] mm_interconnect_0_fixedpoint_8_s1_readdata;                  // fixedpoint_8:readdata -> mm_interconnect_0:fixedpoint_8_s1_readdata
+	wire   [1:0] mm_interconnect_0_fixedpoint_8_s1_address;                   // mm_interconnect_0:fixedpoint_8_s1_address -> fixedpoint_8:address
+	wire  [31:0] mm_interconnect_0_fixedpoint_9_s1_readdata;                  // fixedpoint_9:readdata -> mm_interconnect_0:fixedpoint_9_s1_readdata
+	wire   [1:0] mm_interconnect_0_fixedpoint_9_s1_address;                   // mm_interconnect_0:fixedpoint_9_s1_address -> fixedpoint_9:address
 	wire         mm_interconnect_0_spi_0_spi_control_port_chipselect;         // mm_interconnect_0:spi_0_spi_control_port_chipselect -> spi_0:spi_select
 	wire  [15:0] mm_interconnect_0_spi_0_spi_control_port_readdata;           // spi_0:data_to_cpu -> mm_interconnect_0:spi_0_spi_control_port_readdata
 	wire   [2:0] mm_interconnect_0_spi_0_spi_control_port_address;            // mm_interconnect_0:spi_0_spi_control_port_address -> spi_0:mem_addr
@@ -139,7 +229,7 @@ module mnist_nn (
 	wire         irq_mapper_receiver1_irq;                                    // timer_0:irq -> irq_mapper:receiver1_irq
 	wire         irq_mapper_receiver2_irq;                                    // spi_0:irq -> irq_mapper:receiver2_irq
 	wire  [31:0] nios2_gen2_0_irq_irq;                                        // irq_mapper:sender_irq -> nios2_gen2_0:irq
-	wire         rst_controller_reset_out_reset;                              // rst_controller:reset_out -> [button:reset_n, hex_digits_pio:reset_n, irq_mapper:reset, jtag_uart_0:rst_n, key:reset_n, keycode:reset_n, leds_pio:reset_n, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, rst_translator:in_reset, sdram_pll:reset, spi_0:reset_n, sysid_qsys_0:reset_n, timer_0:reset_n, usb_gpx:reset_n, usb_irq:reset_n, usb_rst:reset_n, x_displ:reset_n, y_displ:reset_n]
+	wire         rst_controller_reset_out_reset;                              // rst_controller:reset_out -> [button:reset_n, fixedpoint_0:reset_n, fixedpoint_1:reset_n, fixedpoint_2:reset_n, fixedpoint_3:reset_n, fixedpoint_4:reset_n, fixedpoint_5:reset_n, fixedpoint_6:reset_n, fixedpoint_7:reset_n, fixedpoint_8:reset_n, fixedpoint_9:reset_n, floatingpoint_0:reset_n, floatingpoint_1:reset_n, floatingpoint_2:reset_n, floatingpoint_3:reset_n, floatingpoint_4:reset_n, floatingpoint_5:reset_n, floatingpoint_6:reset_n, floatingpoint_7:reset_n, floatingpoint_8:reset_n, floatingpoint_9:reset_n, hex_digits_pio:reset_n, irq_mapper:reset, jtag_uart_0:rst_n, key:reset_n, keycode:reset_n, leds_pio:reset_n, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, rst_translator:in_reset, sdram_pll:reset, spi_0:reset_n, sysid_qsys_0:reset_n, timer_0:reset_n, usb_gpx:reset_n, usb_irq:reset_n, usb_rst:reset_n, x_displ:reset_n, y_displ:reset_n]
 	wire         rst_controller_reset_out_reset_req;                          // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
 	wire         nios2_gen2_0_debug_reset_request_reset;                      // nios2_gen2_0:debug_reset_request -> [rst_controller:reset_in1, rst_controller_001:reset_in1]
 	wire         rst_controller_001_reset_out_reset;                          // rst_controller_001:reset_out -> [mm_interconnect_0:sdram_reset_reset_bridge_in_reset_reset, sdram:reset_n]
@@ -155,7 +245,197 @@ module mnist_nn (
 		.out_port   (button_export)                           // external_connection.export
 	);
 
-	mnist_nn_hex_digits_pio hex_digits_pio (
+	mnist_nn_fixedpoint_0 fixedpoint_0 (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_fixedpoint_0_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_fixedpoint_0_s1_readdata), //                    .readdata
+		.in_port  (fixedpoint_0_export)                         // external_connection.export
+	);
+
+	mnist_nn_fixedpoint_0 fixedpoint_1 (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_fixedpoint_1_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_fixedpoint_1_s1_readdata), //                    .readdata
+		.in_port  (fixedpoint_1_export)                         // external_connection.export
+	);
+
+	mnist_nn_fixedpoint_0 fixedpoint_2 (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_fixedpoint_2_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_fixedpoint_2_s1_readdata), //                    .readdata
+		.in_port  (fixedpoint_2_export)                         // external_connection.export
+	);
+
+	mnist_nn_fixedpoint_0 fixedpoint_3 (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_fixedpoint_3_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_fixedpoint_3_s1_readdata), //                    .readdata
+		.in_port  (fixedpoint_3_export)                         // external_connection.export
+	);
+
+	mnist_nn_fixedpoint_0 fixedpoint_4 (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_fixedpoint_4_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_fixedpoint_4_s1_readdata), //                    .readdata
+		.in_port  (fixedpoint_4_export)                         // external_connection.export
+	);
+
+	mnist_nn_fixedpoint_0 fixedpoint_5 (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_fixedpoint_5_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_fixedpoint_5_s1_readdata), //                    .readdata
+		.in_port  (fixedpoint_5_export)                         // external_connection.export
+	);
+
+	mnist_nn_fixedpoint_0 fixedpoint_6 (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_fixedpoint_6_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_fixedpoint_6_s1_readdata), //                    .readdata
+		.in_port  (fixedpoint_6_export)                         // external_connection.export
+	);
+
+	mnist_nn_fixedpoint_0 fixedpoint_7 (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_fixedpoint_7_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_fixedpoint_7_s1_readdata), //                    .readdata
+		.in_port  (fixedpoint_7_export)                         // external_connection.export
+	);
+
+	mnist_nn_fixedpoint_0 fixedpoint_8 (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_fixedpoint_8_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_fixedpoint_8_s1_readdata), //                    .readdata
+		.in_port  (fixedpoint_8_export)                         // external_connection.export
+	);
+
+	mnist_nn_fixedpoint_0 fixedpoint_9 (
+		.clk      (clk_clk),                                    //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),            //               reset.reset_n
+		.address  (mm_interconnect_0_fixedpoint_9_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_fixedpoint_9_s1_readdata), //                    .readdata
+		.in_port  (fixedpoint_9_export)                         // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 floatingpoint_0 (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_floatingpoint_0_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_floatingpoint_0_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_floatingpoint_0_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_floatingpoint_0_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_floatingpoint_0_s1_readdata),   //                    .readdata
+		.out_port   (floatingpoint_0_export)                           // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 floatingpoint_1 (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_floatingpoint_1_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_floatingpoint_1_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_floatingpoint_1_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_floatingpoint_1_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_floatingpoint_1_s1_readdata),   //                    .readdata
+		.out_port   (floatingpoint_1_export)                           // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 floatingpoint_2 (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_floatingpoint_2_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_floatingpoint_2_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_floatingpoint_2_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_floatingpoint_2_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_floatingpoint_2_s1_readdata),   //                    .readdata
+		.out_port   (floatingpoint_2_export)                           // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 floatingpoint_3 (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_floatingpoint_3_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_floatingpoint_3_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_floatingpoint_3_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_floatingpoint_3_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_floatingpoint_3_s1_readdata),   //                    .readdata
+		.out_port   (floatingpoint_3_export)                           // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 floatingpoint_4 (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_floatingpoint_4_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_floatingpoint_4_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_floatingpoint_4_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_floatingpoint_4_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_floatingpoint_4_s1_readdata),   //                    .readdata
+		.out_port   (floatingpoint_4_export)                           // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 floatingpoint_5 (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_floatingpoint_5_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_floatingpoint_5_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_floatingpoint_5_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_floatingpoint_5_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_floatingpoint_5_s1_readdata),   //                    .readdata
+		.out_port   (floatingpoint_5_export)                           // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 floatingpoint_6 (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_floatingpoint_6_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_floatingpoint_6_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_floatingpoint_6_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_floatingpoint_6_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_floatingpoint_6_s1_readdata),   //                    .readdata
+		.out_port   (floatingpoint_6_export)                           // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 floatingpoint_7 (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_floatingpoint_7_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_floatingpoint_7_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_floatingpoint_7_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_floatingpoint_7_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_floatingpoint_7_s1_readdata),   //                    .readdata
+		.out_port   (floatingpoint_7_export)                           // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 floatingpoint_8 (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_floatingpoint_8_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_floatingpoint_8_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_floatingpoint_8_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_floatingpoint_8_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_floatingpoint_8_s1_readdata),   //                    .readdata
+		.out_port   (floatingpoint_8_export)                           // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 floatingpoint_9 (
+		.clk        (clk_clk),                                         //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),                 //               reset.reset_n
+		.address    (mm_interconnect_0_floatingpoint_9_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_floatingpoint_9_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_floatingpoint_9_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_floatingpoint_9_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_floatingpoint_9_s1_readdata),   //                    .readdata
+		.out_port   (floatingpoint_9_export)                           // external_connection.export
+	);
+
+	mnist_nn_floatingpoint_0 hex_digits_pio (
 		.clk        (clk_clk),                                        //                 clk.clk
 		.reset_n    (~rst_controller_reset_out_reset),                //               reset.reset_n
 		.address    (mm_interconnect_0_hex_digits_pio_s1_address),    //                  s1.address
@@ -407,6 +687,76 @@ module mnist_nn (
 		.button_s1_readdata                             (mm_interconnect_0_button_s1_readdata),                        //                                         .readdata
 		.button_s1_writedata                            (mm_interconnect_0_button_s1_writedata),                       //                                         .writedata
 		.button_s1_chipselect                           (mm_interconnect_0_button_s1_chipselect),                      //                                         .chipselect
+		.fixedpoint_0_s1_address                        (mm_interconnect_0_fixedpoint_0_s1_address),                   //                          fixedpoint_0_s1.address
+		.fixedpoint_0_s1_readdata                       (mm_interconnect_0_fixedpoint_0_s1_readdata),                  //                                         .readdata
+		.fixedpoint_1_s1_address                        (mm_interconnect_0_fixedpoint_1_s1_address),                   //                          fixedpoint_1_s1.address
+		.fixedpoint_1_s1_readdata                       (mm_interconnect_0_fixedpoint_1_s1_readdata),                  //                                         .readdata
+		.fixedpoint_2_s1_address                        (mm_interconnect_0_fixedpoint_2_s1_address),                   //                          fixedpoint_2_s1.address
+		.fixedpoint_2_s1_readdata                       (mm_interconnect_0_fixedpoint_2_s1_readdata),                  //                                         .readdata
+		.fixedpoint_3_s1_address                        (mm_interconnect_0_fixedpoint_3_s1_address),                   //                          fixedpoint_3_s1.address
+		.fixedpoint_3_s1_readdata                       (mm_interconnect_0_fixedpoint_3_s1_readdata),                  //                                         .readdata
+		.fixedpoint_4_s1_address                        (mm_interconnect_0_fixedpoint_4_s1_address),                   //                          fixedpoint_4_s1.address
+		.fixedpoint_4_s1_readdata                       (mm_interconnect_0_fixedpoint_4_s1_readdata),                  //                                         .readdata
+		.fixedpoint_5_s1_address                        (mm_interconnect_0_fixedpoint_5_s1_address),                   //                          fixedpoint_5_s1.address
+		.fixedpoint_5_s1_readdata                       (mm_interconnect_0_fixedpoint_5_s1_readdata),                  //                                         .readdata
+		.fixedpoint_6_s1_address                        (mm_interconnect_0_fixedpoint_6_s1_address),                   //                          fixedpoint_6_s1.address
+		.fixedpoint_6_s1_readdata                       (mm_interconnect_0_fixedpoint_6_s1_readdata),                  //                                         .readdata
+		.fixedpoint_7_s1_address                        (mm_interconnect_0_fixedpoint_7_s1_address),                   //                          fixedpoint_7_s1.address
+		.fixedpoint_7_s1_readdata                       (mm_interconnect_0_fixedpoint_7_s1_readdata),                  //                                         .readdata
+		.fixedpoint_8_s1_address                        (mm_interconnect_0_fixedpoint_8_s1_address),                   //                          fixedpoint_8_s1.address
+		.fixedpoint_8_s1_readdata                       (mm_interconnect_0_fixedpoint_8_s1_readdata),                  //                                         .readdata
+		.fixedpoint_9_s1_address                        (mm_interconnect_0_fixedpoint_9_s1_address),                   //                          fixedpoint_9_s1.address
+		.fixedpoint_9_s1_readdata                       (mm_interconnect_0_fixedpoint_9_s1_readdata),                  //                                         .readdata
+		.floatingpoint_0_s1_address                     (mm_interconnect_0_floatingpoint_0_s1_address),                //                       floatingpoint_0_s1.address
+		.floatingpoint_0_s1_write                       (mm_interconnect_0_floatingpoint_0_s1_write),                  //                                         .write
+		.floatingpoint_0_s1_readdata                    (mm_interconnect_0_floatingpoint_0_s1_readdata),               //                                         .readdata
+		.floatingpoint_0_s1_writedata                   (mm_interconnect_0_floatingpoint_0_s1_writedata),              //                                         .writedata
+		.floatingpoint_0_s1_chipselect                  (mm_interconnect_0_floatingpoint_0_s1_chipselect),             //                                         .chipselect
+		.floatingpoint_1_s1_address                     (mm_interconnect_0_floatingpoint_1_s1_address),                //                       floatingpoint_1_s1.address
+		.floatingpoint_1_s1_write                       (mm_interconnect_0_floatingpoint_1_s1_write),                  //                                         .write
+		.floatingpoint_1_s1_readdata                    (mm_interconnect_0_floatingpoint_1_s1_readdata),               //                                         .readdata
+		.floatingpoint_1_s1_writedata                   (mm_interconnect_0_floatingpoint_1_s1_writedata),              //                                         .writedata
+		.floatingpoint_1_s1_chipselect                  (mm_interconnect_0_floatingpoint_1_s1_chipselect),             //                                         .chipselect
+		.floatingpoint_2_s1_address                     (mm_interconnect_0_floatingpoint_2_s1_address),                //                       floatingpoint_2_s1.address
+		.floatingpoint_2_s1_write                       (mm_interconnect_0_floatingpoint_2_s1_write),                  //                                         .write
+		.floatingpoint_2_s1_readdata                    (mm_interconnect_0_floatingpoint_2_s1_readdata),               //                                         .readdata
+		.floatingpoint_2_s1_writedata                   (mm_interconnect_0_floatingpoint_2_s1_writedata),              //                                         .writedata
+		.floatingpoint_2_s1_chipselect                  (mm_interconnect_0_floatingpoint_2_s1_chipselect),             //                                         .chipselect
+		.floatingpoint_3_s1_address                     (mm_interconnect_0_floatingpoint_3_s1_address),                //                       floatingpoint_3_s1.address
+		.floatingpoint_3_s1_write                       (mm_interconnect_0_floatingpoint_3_s1_write),                  //                                         .write
+		.floatingpoint_3_s1_readdata                    (mm_interconnect_0_floatingpoint_3_s1_readdata),               //                                         .readdata
+		.floatingpoint_3_s1_writedata                   (mm_interconnect_0_floatingpoint_3_s1_writedata),              //                                         .writedata
+		.floatingpoint_3_s1_chipselect                  (mm_interconnect_0_floatingpoint_3_s1_chipselect),             //                                         .chipselect
+		.floatingpoint_4_s1_address                     (mm_interconnect_0_floatingpoint_4_s1_address),                //                       floatingpoint_4_s1.address
+		.floatingpoint_4_s1_write                       (mm_interconnect_0_floatingpoint_4_s1_write),                  //                                         .write
+		.floatingpoint_4_s1_readdata                    (mm_interconnect_0_floatingpoint_4_s1_readdata),               //                                         .readdata
+		.floatingpoint_4_s1_writedata                   (mm_interconnect_0_floatingpoint_4_s1_writedata),              //                                         .writedata
+		.floatingpoint_4_s1_chipselect                  (mm_interconnect_0_floatingpoint_4_s1_chipselect),             //                                         .chipselect
+		.floatingpoint_5_s1_address                     (mm_interconnect_0_floatingpoint_5_s1_address),                //                       floatingpoint_5_s1.address
+		.floatingpoint_5_s1_write                       (mm_interconnect_0_floatingpoint_5_s1_write),                  //                                         .write
+		.floatingpoint_5_s1_readdata                    (mm_interconnect_0_floatingpoint_5_s1_readdata),               //                                         .readdata
+		.floatingpoint_5_s1_writedata                   (mm_interconnect_0_floatingpoint_5_s1_writedata),              //                                         .writedata
+		.floatingpoint_5_s1_chipselect                  (mm_interconnect_0_floatingpoint_5_s1_chipselect),             //                                         .chipselect
+		.floatingpoint_6_s1_address                     (mm_interconnect_0_floatingpoint_6_s1_address),                //                       floatingpoint_6_s1.address
+		.floatingpoint_6_s1_write                       (mm_interconnect_0_floatingpoint_6_s1_write),                  //                                         .write
+		.floatingpoint_6_s1_readdata                    (mm_interconnect_0_floatingpoint_6_s1_readdata),               //                                         .readdata
+		.floatingpoint_6_s1_writedata                   (mm_interconnect_0_floatingpoint_6_s1_writedata),              //                                         .writedata
+		.floatingpoint_6_s1_chipselect                  (mm_interconnect_0_floatingpoint_6_s1_chipselect),             //                                         .chipselect
+		.floatingpoint_7_s1_address                     (mm_interconnect_0_floatingpoint_7_s1_address),                //                       floatingpoint_7_s1.address
+		.floatingpoint_7_s1_write                       (mm_interconnect_0_floatingpoint_7_s1_write),                  //                                         .write
+		.floatingpoint_7_s1_readdata                    (mm_interconnect_0_floatingpoint_7_s1_readdata),               //                                         .readdata
+		.floatingpoint_7_s1_writedata                   (mm_interconnect_0_floatingpoint_7_s1_writedata),              //                                         .writedata
+		.floatingpoint_7_s1_chipselect                  (mm_interconnect_0_floatingpoint_7_s1_chipselect),             //                                         .chipselect
+		.floatingpoint_8_s1_address                     (mm_interconnect_0_floatingpoint_8_s1_address),                //                       floatingpoint_8_s1.address
+		.floatingpoint_8_s1_write                       (mm_interconnect_0_floatingpoint_8_s1_write),                  //                                         .write
+		.floatingpoint_8_s1_readdata                    (mm_interconnect_0_floatingpoint_8_s1_readdata),               //                                         .readdata
+		.floatingpoint_8_s1_writedata                   (mm_interconnect_0_floatingpoint_8_s1_writedata),              //                                         .writedata
+		.floatingpoint_8_s1_chipselect                  (mm_interconnect_0_floatingpoint_8_s1_chipselect),             //                                         .chipselect
+		.floatingpoint_9_s1_address                     (mm_interconnect_0_floatingpoint_9_s1_address),                //                       floatingpoint_9_s1.address
+		.floatingpoint_9_s1_write                       (mm_interconnect_0_floatingpoint_9_s1_write),                  //                                         .write
+		.floatingpoint_9_s1_readdata                    (mm_interconnect_0_floatingpoint_9_s1_readdata),               //                                         .readdata
+		.floatingpoint_9_s1_writedata                   (mm_interconnect_0_floatingpoint_9_s1_writedata),              //                                         .writedata
+		.floatingpoint_9_s1_chipselect                  (mm_interconnect_0_floatingpoint_9_s1_chipselect),             //                                         .chipselect
 		.hex_digits_pio_s1_address                      (mm_interconnect_0_hex_digits_pio_s1_address),                 //                        hex_digits_pio_s1.address
 		.hex_digits_pio_s1_write                        (mm_interconnect_0_hex_digits_pio_s1_write),                   //                                         .write
 		.hex_digits_pio_s1_readdata                     (mm_interconnect_0_hex_digits_pio_s1_readdata),                //                                         .readdata

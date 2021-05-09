@@ -15,7 +15,7 @@ module pointer (
     parameter [9:0] Y_Max=479;     // Bottommost point on the Y axis
     parameter [9:0] X_Step=1;      // Step size on the X axis
     parameter [9:0] Y_Step=1;      // Step size on the Y axis
-	 parameter [7:0] Sensitivity=8'hfc; // mask lower bits of displacement values
+	 parameter [7:0] Sensitivity=8'hff; // mask lower bits of displacement values
 
     assign X_pos = x_pos;
     assign Y_pos = y_pos;

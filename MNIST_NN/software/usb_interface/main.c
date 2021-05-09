@@ -141,19 +141,25 @@ void setMouseData(BOOT_MOUSE_REPORT* buf)
 void readProbabilities(WORD* buf)
 {
 	for (int i = 0; i < 10; ++i)
-		buf[i] = IORD_ALTERA_AVALON_PIO_DATA(FIXEDPOINT_0_BASE + i);
+		buf[i] = IORD_ALTERA_AVALON_PIO_DATA(0x80 + i*0x10);
 }
 
 void setProbabilites(WORD* buf)
 {	
-	for (int i = 0; i < 10; ++i)
-		buf[i] = IOWR_ALTERA_AVALON_PIO_DATA(FLOATINGPOINT_0_BASE + i);
+	for (int i = 0; i < 10; ++i){
+		IOWR_ALTERA_AVALON_PIO_DATA(0x120 + i*0x10, buf[i]);
+	}
+
 }
 
 int main() {
 	BYTE rcode;
 	BOOT_MOUSE_REPORT buf;		//USB mouse report
 	BOOT_KBD_REPORT kbdbuf;
+
+	CHAR XDISPL[2] = {0};
+	CHAR YDISPL[2] = {0};
+	int count = 0;
 
 	BYTE runningdebugflag = 0;//flag to dump out a bunch of information when we first get to USB_STATE_RUNNING
 	BYTE errorflag = 0; //flag once we get an error device so we don't keep dumping out state info
@@ -182,21 +188,24 @@ int main() {
 	buf.Xdispl = 0;
 	buf.Ydispl = 0;
 	while (1) {
-
+		if (count == 1)
+			count = 0;
+		else
+			++count;
 		// read probabilites from hardware and convert to floating point/send back to hardware
 		readProbabilities(fixedpoint);
 		normal = 0.0f;
 		for (int i = 0; i < 10; ++i) {
-			probabilites[i] = fixedpoint[i] / (1 >> 11);
+			probabilites[i] = (float)fixedpoint[i] / 2048.0f;
 			normal += probabilites[i];
 		}
 		for (int i = 0; i < 10; ++i) {
 			value = probabilites[i] / normal;
-			tens = (int)(value * 10);
-			ones = (int)(value * 100) % 10;
-			tenth =  (int)(value * 1000) % 10;
-			hundredth = (int)(value * 10000) % 10;
-			floatingpoint[i] = (tens << (8*3)) | (ones << (8*2)) | (tenth << (8*1)) | (hundredth);
+			tens = (int)(value * 10.0f);
+			ones = (int)(value * 100.0f) % 10;
+			tenth =  (int)(value * 1000.0f) % 10;
+			hundredth = (int)(value * 10000.0f) % 10;
+			floatingpoint[i] = (tens << (4*3)) | (ones << (4*2)) | (tenth << (4*1)) | (hundredth);
 		}
 		setProbabilites(floatingpoint);
 
@@ -235,6 +244,16 @@ int main() {
 
 			else if (device == 2) {
 				rcode = mousePoll(&buf);
+				XDISPL[0] = (CHAR)buf.Xdispl;
+				YDISPL[0] = (CHAR)buf.Ydispl;
+				SHORT X = 0;
+				SHORT Y = 0;
+				for (int i = 0; i < 1; ++i) {
+					X += XDISPL[i];
+					Y += YDISPL[i];
+				}
+				buf.Xdispl = (X / 4) & 0xff;
+				buf.Ydispl = (Y / 4) & 0xff;
 				if (rcode == hrNAK) {
 					//NAK means no new data
 					continue;
